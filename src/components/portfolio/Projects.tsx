@@ -52,7 +52,9 @@ function Thumb({ project, live }: { project: Project; live: boolean }) {
       ) : (
         <div className="grid-texture absolute inset-0 opacity-80">
           <div className="absolute inset-0 grid place-items-center">
-            <span className="font-mono text-[7rem] font-semibold leading-none text-powder/10">{project.index}</span>
+            <span className="font-mono text-[7rem] font-semibold leading-none text-powder/10">
+              {project.index}
+            </span>
           </div>
         </div>
       )}
@@ -82,12 +84,17 @@ function ProjectCard({ project }: { project: Project }) {
       data-card
       onPointerMove={(e) => {
         const r = e.currentTarget.getBoundingClientRect();
-        setSpot({ x: ((e.clientX - r.left) / r.width) * 100, y: ((e.clientY - r.top) / r.height) * 100 });
+        setSpot({
+          x: ((e.clientX - r.left) / r.width) * 100,
+          y: ((e.clientY - r.top) / r.height) * 100,
+        });
       }}
       className={cn(
         "lab-card group relative flex shrink-0 snap-start flex-col overflow-hidden rounded-lg border bg-card transition-all duration-500",
         "hover:-translate-y-1 hover:glow-powder reduced:hover:translate-y-0",
-        project.award ? "border-poppy/40 hover:border-poppy/70" : "border-border hover:border-powder/40",
+        project.award
+          ? "border-poppy/40 hover:border-poppy/70"
+          : "border-border hover:border-powder/40",
       )}
     >
       <div
@@ -110,9 +117,12 @@ function ProjectCard({ project }: { project: Project }) {
           <div className="flex items-start justify-between gap-4">
             <div>
               <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
-                <span className="text-poppy-bright">{project.index}</span> · {project.year} · {project.role}
+                <span className="text-poppy-bright">{project.index}</span> · {project.year} ·{" "}
+                {project.role}
               </p>
-              <h3 className="mt-2 text-xl font-semibold leading-tight tracking-tight lg:text-2xl">{project.title}</h3>
+              <h3 className="mt-2 text-xl font-semibold leading-tight tracking-tight lg:text-2xl">
+                {project.title}
+              </h3>
             </div>
             <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-border transition group-hover:border-poppy group-hover:bg-poppy group-hover:text-poppy-foreground">
               <Maximize2 className="h-4 w-4" />
@@ -240,7 +250,8 @@ function Reel() {
     return () => st.removeEventListener("scroll", onScroll);
   }, [mode, paint]);
 
-  const pageTop = () => (wrap.current ? wrap.current.getBoundingClientRect().top + window.scrollY : 0);
+  const pageTop = () =>
+    wrap.current ? wrap.current.getBoundingClientRect().top + window.scrollY : 0;
 
   const go = (dir: 1 | -1) => {
     playSound("tick");
@@ -273,7 +284,11 @@ function Reel() {
   const pinned = mode === "pin";
 
   return (
-    <div ref={wrap} className="relative mt-12" style={pinned ? { height: `calc(max(42rem, 80svh) + ${distance}px)` } : undefined}>
+    <div
+      ref={wrap}
+      className="relative mt-12"
+      style={pinned ? { height: `calc(max(42rem, 80svh) + ${distance}px)` } : undefined}
+    >
       <div
         ref={stage}
         className={cn(
@@ -369,7 +384,9 @@ function ProjectModal() {
               <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
                 <span className="text-poppy-bright">{project.index}</span> · {project.year}
               </p>
-              <DialogTitle className="mt-3 text-3xl font-semibold leading-tight tracking-tight">{project.title}</DialogTitle>
+              <DialogTitle className="mt-3 text-3xl font-semibold leading-tight tracking-tight">
+                {project.title}
+              </DialogTitle>
               <p className="mt-1 font-serif text-lg italic text-powder">{project.role}</p>
               {project.award && (
                 <p className="mt-5 inline-flex w-fit items-center gap-2 rounded-sm border border-poppy/50 bg-poppy/10 px-3 py-2 font-mono text-[11px] uppercase tracking-[0.16em] text-foreground shadow-[var(--glow-poppy)]">
@@ -430,14 +447,19 @@ export function Projects() {
             wideDescription
             title={
               <>
-                Experiments that <span className="font-serif font-normal italic text-powder">run</span>, not just
+                Experiments that{" "}
+                <span className="font-serif font-normal italic text-powder">run</span>, not just
                 render.
               </>
             }
           >
             <span className="xl:whitespace-nowrap">
-              <span className="text-powder">Projects I've built for hackathons, university, and ideas of my own,</span>{" "}
-              <span className="text-foreground">with finalist entries clearly marked on their cards.</span>
+              <span className="text-powder">
+                Projects I've built for hackathons, university, and ideas of my own,
+              </span>{" "}
+              <span className="text-foreground">
+                with finalist entries clearly marked on their cards.
+              </span>
             </span>
           </SectionHeading>
         </div>

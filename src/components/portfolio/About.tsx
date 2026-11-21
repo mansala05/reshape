@@ -60,7 +60,6 @@ function Portrait() {
           {badgeB}
         </span>
       )}
-
     </figure>
   );
 }
@@ -75,7 +74,9 @@ export function About() {
           kicker={about.kicker}
           title={
             <>
-              {h.lead} <span className="font-serif font-normal italic text-poppy-bright">{h.accent}</span> {h.tail}
+              {h.lead}{" "}
+              <span className="font-serif font-normal italic text-poppy-bright">{h.accent}</span>{" "}
+              {h.tail}
             </>
           }
         />
@@ -86,29 +87,49 @@ export function About() {
           </div>
 
           <div className="md:col-span-7 md:pl-4">
-            <p data-reveal className="text-balance-tight text-3xl font-medium leading-snug text-foreground md:text-4xl">
+            <p
+              data-reveal
+              className="text-balance-tight text-3xl font-medium leading-snug text-foreground md:text-4xl"
+            >
               {about.intro}
             </p>
-            <p data-reveal className="mt-3 text-balance-tight text-xl leading-snug text-powder md:text-2xl">
+            <p
+              data-reveal
+              className="mt-3 text-balance-tight text-xl leading-snug text-powder md:text-2xl"
+            >
               {about.introDetail}
             </p>
-            <div data-reveal className="mt-8 grid gap-5 text-base leading-relaxed text-muted-foreground md:grid-cols-2">
+            <div
+              data-reveal
+              className="mt-8 grid gap-5 text-base leading-relaxed text-muted-foreground md:grid-cols-2"
+            >
               {about.narrative.map((para, i) => (
-                <p key={i} className={cn(i === 0 && "first-letter:float-left first-letter:mr-2 first-letter:font-serif first-letter:text-6xl first-letter:italic first-letter:leading-[0.8] first-letter:text-poppy-bright", i === 2 && "md:col-span-2")}>
+                <p
+                  key={i}
+                  className={cn(
+                    i === 0 &&
+                      "first-letter:float-left first-letter:mr-2 first-letter:font-serif first-letter:text-6xl first-letter:italic first-letter:leading-[0.8] first-letter:text-poppy-bright",
+                    i === 2 && "md:col-span-2",
+                  )}
+                >
                   {para}
                 </p>
               ))}
             </div>
 
             <blockquote data-reveal className="relative mt-12 border-l-2 border-poppy pl-6">
-              {about.statementLabel && <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-poppy-bright">{about.statementLabel}</p>}
-              <p className="mt-3 font-serif text-3xl italic leading-tight text-foreground md:text-[2.6rem]">{about.statement}</p>
+              {about.statementLabel && (
+                <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-poppy-bright">
+                  {about.statementLabel}
+                </p>
+              )}
+              <p className="mt-3 font-serif text-3xl italic leading-tight text-foreground md:text-[2.6rem]">
+                {about.statement}
+              </p>
             </blockquote>
-
           </div>
         </div>
       </div>
     </section>
   );
 }
-

@@ -16,12 +16,27 @@ export const profile = {
   resumeUrl: "#",
 };
 
-export type Social = { label: string; handle: string; href: string; key: "github" | "linkedin" | "devpost" | "email" };
+export type Social = {
+  label: string;
+  handle: string;
+  href: string;
+  key: "github" | "linkedin" | "devpost" | "email";
+};
 
 export const socials: Social[] = [
   { key: "github", label: "GitHub", handle: "@mansala05", href: "https://github.com/mansala05" },
-  { key: "linkedin", label: "LinkedIn", handle: "in/mansalaliyanage", href: "https://www.linkedin.com/in/mansalaliyanage/" },
-  { key: "devpost", label: "Devpost", handle: "liyanagemansala", href: "https://devpost.com/liyanagemansala" },
+  {
+    key: "linkedin",
+    label: "LinkedIn",
+    handle: "in/mansalaliyanage",
+    href: "https://www.linkedin.com/in/mansalaliyanage/",
+  },
+  {
+    key: "devpost",
+    label: "Devpost",
+    handle: "liyanagemansala",
+    href: "https://devpost.com/liyanagemansala",
+  },
   { key: "email", label: "Email", handle: profile.email, href: `mailto:${profile.email}` },
 ];
 
@@ -184,7 +199,13 @@ export const projects: Project[] = [
 /** `daily: true` gets a solid poppy dot; leave it off for tools in rotation. */
 export type StackTool = { name: string; daily?: boolean };
 
-export type StackGroup = { id: string; code: string; title: string; blurb: string; tools: StackTool[] };
+export type StackGroup = {
+  id: string;
+  code: string;
+  title: string;
+  blurb: string;
+  tools: StackTool[];
+};
 
 export const stack: StackGroup[] = [
   {
@@ -253,8 +274,7 @@ export const stack: StackGroup[] = [
 export const about = {
   kicker: "Manifesto",
   headline: { lead: "Developer by craft.", accent: "Designer", tail: "by instinct." },
-  intro:
-    "Hey there, I'm Mansala Liyanage.",
+  intro: "Hey there, I'm Mansala Liyanage.",
   introDetail: "soft-hearted, bubbly, a little chaotic, and a bit of a perfectionist.",
   narrative: [
     "I started designing when I was young, drawn to the way colors, shapes, and details could change how something felt. Working with design teams helped me grow from making static websites into exploring more interactive digital experiences.",
@@ -300,7 +320,13 @@ export type Poster = {
    * Placeholder artwork only (ignored once `image` is set): background, ink and accent
    * colors, the typeface family to draw it with and one of four layouts.
    */
-  art: { bg: string; ink: string; accent: string; face: "sans" | "serif" | "mono"; layout: "stack" | "orbit" | "grid" | "split" };
+  art: {
+    bg: string;
+    ink: string;
+    accent: string;
+    face: "sans" | "serif" | "mono";
+    layout: "stack" | "orbit" | "grid" | "split";
+  };
   /** Put your flyer in /public (e.g. "/posters/bloom.jpg") or paste an image URL. */
   image?: string;
 };
@@ -444,7 +470,8 @@ export const posters: Poster[] = [
       text: "Geist, 10/13 pt",
       notes: "A single circle as the sun; type wraps around it like petals.",
     },
-    description: "Placeholder brief — rooftop season opener, one poster family for print and social.",
+    description:
+      "Placeholder brief — rooftop season opener, one poster family for print and social.",
     tags: ["Club", "Social", "Season launch"],
     art: { bg: "#ff3344", ink: "#efe9e1", accent: "#0c0d10", face: "serif", layout: "orbit" },
   },
@@ -467,7 +494,8 @@ export const posters: Poster[] = [
       text: "Geist Mono, 9/12 pt",
       notes: "Swiss grid with one silver spot color standing in for chrome.",
     },
-    description: "Placeholder brief — group show about tenderness and machines. Replace with your own.",
+    description:
+      "Placeholder brief — group show about tenderness and machines. Replace with your own.",
     tags: ["Exhibition", "Spot silver", "Catalogue"],
     art: { bg: "#efe9e1", ink: "#0c0d10", accent: "#5f8fb3", face: "sans", layout: "grid" },
   },
@@ -498,10 +526,25 @@ export const posters: Poster[] = [
 
 export const sections = [
   { id: "top", label: "Home", code: "00", keywords: "home intro hero top index" },
-  { id: "about", label: "Manifesto", code: "01", keywords: "about me bio story portrait manifesto" },
+  {
+    id: "about",
+    label: "Manifesto",
+    code: "01",
+    keywords: "about me bio story portrait manifesto",
+  },
   { id: "work", label: "Experiences", code: "02", keywords: "projects lab experiments work" },
-  { id: "posters", label: "Other Design", code: "03", keywords: "posters flyers events print design gallery" },
-  { id: "craft", label: "Tech Stack", code: "04", keywords: "skills craft stack tools tech capabilities" },
+  {
+    id: "posters",
+    label: "Other Design",
+    code: "03",
+    keywords: "posters flyers events print design gallery",
+  },
+  {
+    id: "craft",
+    label: "Tech Stack",
+    code: "04",
+    keywords: "skills craft stack tools tech capabilities",
+  },
   { id: "contact", label: "Contact", code: "05", keywords: "contact email hire talk" },
 ] as const;
 
@@ -510,13 +553,3 @@ export type SectionId = (typeof sections)[number]["id"];
 export function sectionCode(id: SectionId): string {
   return sections.find((s) => s.id === id)?.code ?? "";
 }
-
-
-
-
-
-
-
-
-
-

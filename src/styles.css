@@ -109,8 +109,10 @@
   --sidebar-ring: oklch(0.815 0.052 238.6 / 60%);
 
   --grid-line: oklch(0.815 0.052 238.6 / 5%);
-  --glow-powder: 0 0 0 1px oklch(0.815 0.052 238.6 / 30%), 0 20px 60px -20px oklch(0.815 0.052 238.6 / 35%);
-  --glow-poppy: 0 0 0 1px oklch(0.651 0.235 23.2 / 50%), 0 12px 40px -12px oklch(0.651 0.235 23.2 / 60%);
+  --glow-powder:
+    0 0 0 1px oklch(0.815 0.052 238.6 / 30%), 0 20px 60px -20px oklch(0.815 0.052 238.6 / 35%);
+  --glow-poppy:
+    0 0 0 1px oklch(0.651 0.235 23.2 / 50%), 0 12px 40px -12px oklch(0.651 0.235 23.2 / 60%);
   --shadow-print: 0 36px 70px -30px oklch(0 0 0 / 85%);
 }
 
@@ -295,7 +297,8 @@ html.reduce-motion {
 .reduce-motion *,
 .reduce-motion *::before,
 .reduce-motion *::after {
-  transition-property: color, background-color, border-color, opacity, box-shadow, fill, stroke !important;
+  transition-property:
+    color, background-color, border-color, opacity, box-shadow, fill, stroke !important;
 }
 
 @keyframes fade-only {

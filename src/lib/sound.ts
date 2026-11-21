@@ -8,7 +8,9 @@ let master: GainNode | null = null;
 function ensure() {
   if (typeof window === "undefined") return null;
   if (!ctx) {
-    const AC = window.AudioContext ?? (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
+    const AC =
+      window.AudioContext ??
+      (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
     if (!AC) return null;
     ctx = new AC();
     master = ctx.createGain();
@@ -21,7 +23,10 @@ function ensure() {
 
 type Kind = "tick" | "click" | "open" | "close" | "success" | "ripple" | "toggle";
 
-const presets: Record<Kind, { f: number; f2?: number; d: number; type: OscillatorType; g: number }> = {
+const presets: Record<
+  Kind,
+  { f: number; f2?: number; d: number; type: OscillatorType; g: number }
+> = {
   tick: { f: 2400, d: 0.03, type: "sine", g: 0.12 },
   click: { f: 900, f2: 500, d: 0.07, type: "triangle", g: 0.35 },
   open: { f: 420, f2: 840, d: 0.18, type: "sine", g: 0.35 },

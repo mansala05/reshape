@@ -1,4 +1,16 @@
-import { Activity, ArrowRight, Copy, ExternalLink, Gauge, Layers, MonitorCog, Ticket, Volume2, VolumeX, Waves } from "lucide-react";
+import {
+  Activity,
+  ArrowRight,
+  Copy,
+  ExternalLink,
+  Gauge,
+  Layers,
+  MonitorCog,
+  Ticket,
+  Volume2,
+  VolumeX,
+  Waves,
+} from "lucide-react";
 import { useEffect } from "react";
 
 import {
@@ -46,7 +58,10 @@ export function CommandPalette() {
 
   return (
     <CommandDialog open={open} onOpenChange={(o) => setUI({ paletteOpen: o })}>
-      <CommandInput placeholder="Jump to a section, open a project, copy contact…" className="font-mono" />
+      <CommandInput
+        placeholder="Jump to a section, open a project, copy contact…"
+        className="font-mono"
+      />
       <CommandList className="max-h-[420px]">
         <CommandEmpty className="py-8 text-center font-mono text-xs text-muted-foreground">
           No match. Try “about”, “posters” or “email”.
@@ -121,12 +136,18 @@ export function CommandPalette() {
             <CommandShortcut className="font-mono">{reduced ? "on" : "off"}</CommandShortcut>
           </CommandItem>
           {motionSource === "user" && (
-            <CommandItem value="motion follow system device setting" onSelect={() => followSystemMotion()}>
+            <CommandItem
+              value="motion follow system device setting"
+              onSelect={() => followSystemMotion()}
+            >
               <MonitorCog className="text-powder" />
               <span>Use my device's motion setting</span>
             </CommandItem>
           )}
-          <CommandItem value="toggle performance stats fps" onSelect={() => run(() => setUI({ statsOpen: !statsOpen }))}>
+          <CommandItem
+            value="toggle performance stats fps"
+            onSelect={() => run(() => setUI({ statsOpen: !statsOpen }))}
+          >
             <Activity className="text-powder" />
             <span>{statsOpen ? "Hide performance stats" : "Show performance stats"}</span>
           </CommandItem>

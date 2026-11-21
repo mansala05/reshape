@@ -24,7 +24,12 @@ function Sprockets() {
 function Filmstrip() {
   const reduced = useUI((s) => s.reducedMotion);
   const options = useMemo(
-    () => ({ align: "start" as const, containScroll: "trimSnaps" as const, dragFree: !reduced, duration: reduced ? 12 : 30 }),
+    () => ({
+      align: "start" as const,
+      containScroll: "trimSnaps" as const,
+      dragFree: !reduced,
+      duration: reduced ? 12 : 30,
+    }),
     [reduced],
   );
   const [viewportRef, api] = useEmblaCarousel(options);
@@ -101,7 +106,12 @@ function Filmstrip() {
           <div className="flex touch-pan-y items-end">
             <div aria-hidden className="w-[max(1.25rem,calc((100vw-80rem)/2+2rem))] shrink-0" />
             {posters.map((p) => (
-              <div key={p.id} className="shrink-0 pr-5 md:pr-7" aria-roledescription="slide" aria-label={`${p.index} of ${posters.length}`}>
+              <div
+                key={p.id}
+                className="shrink-0 pr-5 md:pr-7"
+                aria-roledescription="slide"
+                aria-label={`${p.index} of ${posters.length}`}
+              >
                 <button
                   type="button"
                   onClick={() => openPoster(p.id)}
@@ -139,7 +149,11 @@ function Filmstrip() {
 
       <div className="mx-auto mt-5 max-w-7xl px-5 md:px-8">
         <div className="h-px w-full overflow-hidden bg-border">
-          <div ref={bar} className="h-full origin-left bg-poppy-bright transition-transform duration-150" style={{ transform: "scaleX(0.08)" }} />
+          <div
+            ref={bar}
+            className="h-full origin-left bg-poppy-bright transition-transform duration-150"
+            style={{ transform: "scaleX(0.08)" }}
+          />
         </div>
       </div>
     </div>
@@ -197,14 +211,20 @@ function PosterLightbox() {
                   N° {poster.index} · {poster.year}
                 </span>
               </div>
-              <DialogTitle className="mt-4 pr-6 text-3xl font-semibold leading-tight tracking-tight">{poster.title}</DialogTitle>
+              <DialogTitle className="mt-4 pr-6 text-3xl font-semibold leading-tight tracking-tight">
+                {poster.title}
+              </DialogTitle>
               <DialogDescription className="mt-4 text-sm leading-relaxed text-muted-foreground">
                 {poster.description}
               </DialogDescription>
 
               <dl className="mt-6 border-t border-border pt-5">
-                <dt className="font-mono text-[10px] uppercase tracking-[0.18em] text-powder/60">Event timeline</dt>
-                <dd className="mt-1 font-serif text-lg italic text-powder">{poster.date} · {poster.year}</dd>
+                <dt className="font-mono text-[10px] uppercase tracking-[0.18em] text-powder/60">
+                  Event timeline
+                </dt>
+                <dd className="mt-1 font-serif text-lg italic text-powder">
+                  {poster.date} · {poster.year}
+                </dd>
               </dl>
 
               <div className="mt-auto flex items-center justify-between gap-3 pt-8">
@@ -243,11 +263,13 @@ export function Posters() {
           kicker="Other Design"
           title={
             <>
-              Ideas that take shape <span className="font-serif font-normal italic text-poppy-bright">beyond tech</span>.
+              Ideas that take shape{" "}
+              <span className="font-serif font-normal italic text-poppy-bright">beyond tech</span>.
             </>
           }
         >
-          A collection of visual ideas, from posters to experiments made just for the joy of creating.
+          A collection of visual ideas, from posters to experiments made just for the joy of
+          creating.
         </SectionHeading>
       </div>
       <Filmstrip />

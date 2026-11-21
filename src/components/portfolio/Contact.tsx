@@ -14,7 +14,12 @@ const schema = z.object({
   message: z.string().trim().min(1, "message is empty").max(2000),
 });
 
-const icons: Record<Social["key"], typeof Github> = { github: Github, linkedin: Linkedin, devpost: Trophy, email: Mail };
+const icons: Record<Social["key"], typeof Github> = {
+  github: Github,
+  linkedin: Linkedin,
+  devpost: Trophy,
+  email: Mail,
+};
 
 type Line = { text: string; tone?: "ok" | "err" | "dim" };
 
@@ -42,7 +47,14 @@ function Field({
       {multiline ? (
         <textarea name={name} rows={4} placeholder={placeholder} className={cls} maxLength={2000} />
       ) : (
-        <input name={name} type={type} placeholder={placeholder} className={cls} maxLength={255} autoComplete="off" />
+        <input
+          name={name}
+          type={type}
+          placeholder={placeholder}
+          className={cls}
+          maxLength={255}
+          autoComplete="off"
+        />
       )}
     </label>
   );
@@ -91,21 +103,28 @@ export function Contact() {
           kicker="Contact"
           title={
             <>
-              Let's make something <span className="font-serif font-normal italic text-poppy-bright">meaningful</span> together.
+              Let's make something{" "}
+              <span className="font-serif font-normal italic text-poppy-bright">meaningful</span>{" "}
+              together.
             </>
           }
         />
 
         <div data-reveal className="mt-14 grid gap-5 lg:grid-cols-[1.5fr_1fr]">
           {/* Terminal */}
-          <div className="overflow-hidden rounded-lg border border-border bg-popover shadow-2xl" data-no-ripple>
+          <div
+            className="overflow-hidden rounded-lg border border-border bg-popover shadow-2xl"
+            data-no-ripple
+          >
             <div className="flex items-center justify-between border-b border-border bg-surface px-4 py-3">
               <div className="flex gap-2">
                 <span className="h-3 w-3 rounded-full bg-poppy" />
                 <span className="h-3 w-3 rounded-full bg-powder" />
                 <span className="h-3 w-3 rounded-full bg-muted-foreground/40" />
               </div>
-              <p className="font-mono text-[11px] text-muted-foreground">contact.sh — zsh — 80×24</p>
+              <p className="font-mono text-[11px] text-muted-foreground">
+                contact.sh — zsh — 80×24
+              </p>
               <span className="w-12" />
             </div>
             <div className="p-5 font-mono text-sm md:p-6">
@@ -123,7 +142,12 @@ export function Contact() {
               <form ref={formRef} onSubmit={onSubmit} className="mt-5" noValidate>
                 <Field label="name" name="name" placeholder="Mansi Liyanage" />
                 <Field label="email" name="email" type="email" placeholder="mansi@gmail.com" />
-                <Field label="message" name="message" multiline placeholder="Anything you want to add…" />
+                <Field
+                  label="message"
+                  name="message"
+                  multiline
+                  placeholder="Anything you want to add…"
+                />
                 <div className="mt-5 flex flex-wrap items-center gap-3">
                   <button
                     type="submit"
@@ -164,8 +188,12 @@ export function Contact() {
               data-no-ripple
               className="group relative overflow-hidden rounded-lg border border-poppy/40 bg-poppy/10 p-6 text-left transition hover:border-poppy hover:glow-poppy"
             >
-              <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-poppy-bright">One-click copy</p>
-              <p className="mt-3 break-all text-2xl font-semibold tracking-tight md:text-3xl">{profile.email}</p>
+              <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-poppy-bright">
+                One-click copy
+              </p>
+              <p className="mt-3 break-all text-2xl font-semibold tracking-tight md:text-3xl">
+                {profile.email}
+              </p>
               <span className="mt-5 inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.16em] text-muted-foreground transition group-hover:text-foreground">
                 <Copy className="h-3.5 w-3.5" /> Copy address
               </span>

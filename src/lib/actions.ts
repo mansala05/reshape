@@ -10,7 +10,9 @@ export async function copyEmail() {
     playSound("success");
     toast.success("Email copied", { description: profile.email });
   } catch {
-    toast.error("Couldn't copy — your browser blocked clipboard access", { description: profile.email });
+    toast.error("Couldn't copy — your browser blocked clipboard access", {
+      description: profile.email,
+    });
   }
 }
 

@@ -11,7 +11,8 @@ export function TechStack() {
           kicker="Tech Stack"
           title={
             <>
-              The tools behind what I <span className="font-serif font-normal italic text-powder">build</span>.
+              The tools behind what I{" "}
+              <span className="font-serif font-normal italic text-powder">build</span>.
             </>
           }
         />
@@ -36,7 +37,9 @@ export function TechStack() {
                       aria-hidden
                       className={cn(
                         "h-1.5 w-1.5 rounded-full",
-                        tool.daily ? "bg-poppy-bright shadow-[0_0_8px_var(--poppy-bright)]" : "bg-poppy/40",
+                        tool.daily
+                          ? "bg-poppy-bright shadow-[0_0_8px_var(--poppy-bright)]"
+                          : "bg-poppy/40",
                       )}
                     />
                     {tool.name}
@@ -50,7 +53,8 @@ export function TechStack() {
 
         <p className="mt-5 flex items-center gap-5 font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
           <span className="inline-flex items-center gap-2">
-            <span className="h-1.5 w-1.5 rounded-full bg-poppy-bright shadow-[0_0_8px_var(--poppy-bright)]" /> Daily driver
+            <span className="h-1.5 w-1.5 rounded-full bg-poppy-bright shadow-[0_0_8px_var(--poppy-bright)]" />{" "}
+            Daily driver
           </span>
           <span className="inline-flex items-center gap-2">
             <span className="h-1.5 w-1.5 rounded-full bg-poppy/40" /> In rotation

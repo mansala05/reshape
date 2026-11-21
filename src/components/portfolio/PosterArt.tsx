@@ -20,7 +20,12 @@ export function PosterArt({ poster, className }: { poster: Poster; className?: s
 
   // Artwork colors are the flyer's own content (edited in portfolio.ts), not site theme colors.
   const { bg, ink, accent, face, layout } = poster.art;
-  const faceClass = face === "serif" ? "font-serif italic font-normal" : face === "mono" ? "font-mono font-semibold" : "font-sans font-semibold";
+  const faceClass =
+    face === "serif"
+      ? "font-serif italic font-normal"
+      : face === "mono"
+        ? "font-mono font-semibold"
+        : "font-sans font-semibold";
   const lines = poster.headline.split("\n");
 
   return (
@@ -36,7 +41,10 @@ export function PosterArt({ poster, className }: { poster: Poster; className?: s
             <span>{poster.kind}</span>
             <span>{poster.date}</span>
           </div>
-          <div className={cn("mt-[6cqw] leading-[0.82] tracking-[-0.05em]", faceClass)} style={{ fontSize: "24cqw" }}>
+          <div
+            className={cn("mt-[6cqw] leading-[0.82] tracking-[-0.05em]", faceClass)}
+            style={{ fontSize: "24cqw" }}
+          >
             {lines.map((l, i) => (
               <span key={i} className="block" style={i % 2 ? { color: accent } : undefined}>
                 {l}
@@ -60,9 +68,17 @@ export function PosterArt({ poster, className }: { poster: Poster; className?: s
 
       {layout === "orbit" && (
         <div className="absolute inset-0 flex flex-col items-center p-[6cqw] text-center">
-          <p className="font-mono text-[3cqw] uppercase tracking-[0.3em]">{poster.kind} · {poster.year}</p>
-          <div className="relative mt-[8cqw] grid aspect-square w-[78cqw] place-items-center rounded-full" style={{ background: accent }}>
-            <div className={cn("leading-[0.85]", faceClass)} style={{ fontSize: "19cqw", color: bg }}>
+          <p className="font-mono text-[3cqw] uppercase tracking-[0.3em]">
+            {poster.kind} · {poster.year}
+          </p>
+          <div
+            className="relative mt-[8cqw] grid aspect-square w-[78cqw] place-items-center rounded-full"
+            style={{ background: accent }}
+          >
+            <div
+              className={cn("leading-[0.85]", faceClass)}
+              style={{ fontSize: "19cqw", color: bg }}
+            >
               {lines.map((l, i) => (
                 <span key={i} className="block">
                   {l}
@@ -90,18 +106,29 @@ export function PosterArt({ poster, className }: { poster: Poster; className?: s
             }}
           />
           <div className="relative flex h-full flex-col">
-            <div className={cn("leading-[0.9] tracking-[-0.03em]", faceClass)} style={{ fontSize: "13cqw" }}>
+            <div
+              className={cn("leading-[0.9] tracking-[-0.03em]", faceClass)}
+              style={{ fontSize: "13cqw" }}
+            >
               {lines.map((l, i) => (
                 <span key={i} className="block">
                   {l}
                 </span>
               ))}
             </div>
-            <span className="mt-[2cqw] font-mono text-[3cqw] uppercase tracking-[0.14em]">{poster.kind}</span>
-            <span className="mt-auto font-mono font-semibold leading-[0.8] tracking-[-0.06em]" style={{ fontSize: "54cqw", color: accent }}>
+            <span className="mt-[2cqw] font-mono text-[3cqw] uppercase tracking-[0.14em]">
+              {poster.kind}
+            </span>
+            <span
+              className="mt-auto font-mono font-semibold leading-[0.8] tracking-[-0.06em]"
+              style={{ fontSize: "54cqw", color: accent }}
+            >
               {poster.index}
             </span>
-            <div className="mt-[3cqw] grid grid-cols-2 gap-[3cqw] border-t pt-[3cqw] font-mono text-[2.8cqw] uppercase tracking-[0.1em]" style={{ borderColor: ink }}>
+            <div
+              className="mt-[3cqw] grid grid-cols-2 gap-[3cqw] border-t pt-[3cqw] font-mono text-[2.8cqw] uppercase tracking-[0.1em]"
+              style={{ borderColor: ink }}
+            >
               <span>{poster.date}</span>
               <span className="text-right">{poster.city}</span>
               <span className="col-span-2 opacity-80">{poster.lineup.join(" / ")}</span>
@@ -114,10 +141,18 @@ export function PosterArt({ poster, className }: { poster: Poster; className?: s
         <div className="absolute inset-0 flex flex-col">
           <div className="relative flex-[1.1] p-[6cqw]" style={{ background: accent, color: bg }}>
             <p className="flex justify-between font-mono text-[3cqw] uppercase tracking-[0.2em]">
-              <span>{poster.kind} — {poster.year}</span>
+              <span>
+                {poster.kind} — {poster.year}
+              </span>
               <span>N° {poster.index}</span>
             </p>
-            <div className={cn("absolute bottom-[4cqw] left-[6cqw] right-[6cqw] leading-[0.85]", faceClass)} style={{ fontSize: "20cqw" }}>
+            <div
+              className={cn(
+                "absolute bottom-[4cqw] left-[6cqw] right-[6cqw] leading-[0.85]",
+                faceClass,
+              )}
+              style={{ fontSize: "20cqw" }}
+            >
               {lines.map((l, i) => (
                 <span key={i} className="block">
                   {l}

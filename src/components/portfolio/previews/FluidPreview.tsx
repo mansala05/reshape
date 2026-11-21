@@ -129,7 +129,7 @@ export function FluidPreview() {
     let time = 0;
     const loop = (now: number) => {
       // Reduced motion slows the flow to a gentle drift.
-      time += (Math.min(0.05, (now - last) / 1000)) * (isReducedMotion() ? 0.25 : 1);
+      time += Math.min(0.05, (now - last) / 1000) * (isReducedMotion() ? 0.25 : 1);
       last = now;
       mouse.x += (target.x - mouse.x) * 0.08;
       mouse.y += (target.y - mouse.y) * 0.08;

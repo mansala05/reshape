@@ -154,7 +154,9 @@ export function AudioPreview({ interactive = true }: { interactive?: boolean }) 
       const x1 = cx + Math.cos(a) * (r0 + len);
       const y1 = cy + Math.sin(a) * (r0 + len);
       const hot = v > 0.62;
-      c.strokeStyle = hot ? `rgba(${rgb.poppy.join(",")},0.95)` : `rgba(${rgb.powder.join(",")},${0.35 + v * 0.6})`;
+      c.strokeStyle = hot
+        ? `rgba(${rgb.poppy.join(",")},0.95)`
+        : `rgba(${rgb.powder.join(",")},${0.35 + v * 0.6})`;
       c.lineWidth = Math.max(1.5, (Math.PI * 2 * r0) / BARS - 2);
       c.beginPath();
       c.moveTo(x0, y0);

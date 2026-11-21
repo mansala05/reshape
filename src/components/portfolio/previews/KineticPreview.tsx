@@ -35,7 +35,14 @@ export function KineticPreview({ word = "PLAY" }: { word?: string }) {
       for (let x = 0; x < off.width; x += step) {
         if ((data[(y * off.width + x) * 4 + 3] ?? 0) > 128) {
           // Reduced motion skips the scatter-in intro: letters start assembled.
-          out.push({ x: calm ? x : Math.random() * w, y: calm ? y : Math.random() * h, hx: x, hy: y, vx: 0, vy: 0 });
+          out.push({
+            x: calm ? x : Math.random() * w,
+            y: calm ? y : Math.random() * h,
+            hx: x,
+            hy: y,
+            vx: 0,
+            vy: 0,
+          });
         }
       }
     }
@@ -77,7 +84,9 @@ export function KineticPreview({ word = "PLAY" }: { word?: string }) {
       p.y += p.vy;
       const off = Math.min(1, Math.hypot(p.x - p.hx, p.y - p.hy) / 40);
       c.fillStyle =
-        off > 0.25 ? `rgba(${rgb.poppy.join(",")},${0.5 + off * 0.5})` : `rgba(${rgb.powder.join(",")},0.9)`;
+        off > 0.25
+          ? `rgba(${rgb.poppy.join(",")},${0.5 + off * 0.5})`
+          : `rgba(${rgb.powder.join(",")},0.9)`;
       c.fillRect(p.x - 1.2, p.y - 1.2, 2.4, 2.4);
     }
   });

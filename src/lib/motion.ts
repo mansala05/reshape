@@ -11,7 +11,10 @@ export type MotionPreference = "reduced" | "full" | null;
 const KEY = "motion-preference";
 const QUERY = "(prefers-reduced-motion: reduce)";
 
-export function resolveReducedMotion(stored: MotionPreference, systemPrefersReduced: boolean): boolean {
+export function resolveReducedMotion(
+  stored: MotionPreference,
+  systemPrefersReduced: boolean,
+): boolean {
   if (stored === "reduced") return true;
   if (stored === "full") return false;
   return systemPrefersReduced;

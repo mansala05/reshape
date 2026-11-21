@@ -1,13 +1,27 @@
 import { useEffect, useRef } from "react";
 
-export type Pointer = { x: number; y: number; inside: boolean; down: boolean; vx: number; vy: number };
+export type Pointer = {
+  x: number;
+  y: number;
+  inside: boolean;
+  down: boolean;
+  vx: number;
+  vy: number;
+};
 
 /**
  * Sizes a canvas to its parent at device pixel ratio and runs a frame loop.
  * `frame` receives CSS-pixel width/height and a pointer in CSS pixels.
  */
 export function useCanvasLoop(
-  frame: (ctx: { w: number; h: number; dpr: number; t: number; dt: number; pointer: Pointer }) => void,
+  frame: (ctx: {
+    w: number;
+    h: number;
+    dpr: number;
+    t: number;
+    dt: number;
+    pointer: Pointer;
+  }) => void,
   opts: { setup?: (canvas: HTMLCanvasElement) => (() => void) | void; maxDpr?: number } = {},
 ) {
   const ref = useRef<HTMLCanvasElement>(null);

@@ -25,7 +25,11 @@ export function HeroCanvas() {
   }, []);
 
   return (
-    <div ref={wrap} aria-hidden className="pointer-events-none fixed inset-0 z-0 transition-opacity duration-300">
+    <div
+      ref={wrap}
+      aria-hidden
+      className="pointer-events-none fixed inset-0 z-0 transition-opacity duration-300"
+    >
       <div className="absolute inset-0 bg-[radial-gradient(60%_50%_at_70%_45%,var(--surface-2),transparent_70%)]" />
       <ClientOnly fallback={null}>
         <Suspense fallback={null}>

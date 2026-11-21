@@ -48,7 +48,9 @@ export function Nav() {
                 onClick={() => scrollToSection(s.id)}
                 className={cn(
                   "group relative flex items-center gap-2 rounded-sm px-2.5 py-2 font-mono text-xs uppercase tracking-[0.16em] transition-colors",
-                  active === s.id ? "text-foreground" : "text-muted-foreground hover:text-foreground",
+                  active === s.id
+                    ? "text-foreground"
+                    : "text-muted-foreground hover:text-foreground",
                 )}
               >
                 {s.label}
@@ -76,8 +78,3 @@ export function Nav() {
     </header>
   );
 }
-
-
-
-
-

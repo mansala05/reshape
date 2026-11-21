@@ -93,5 +93,7 @@ export function SpatialPreview() {
     }
   });
 
-  return <canvas ref={ref} className="h-full w-full cursor-grab touch-none active:cursor-grabbing" />;
+  return (
+    <canvas ref={ref} className="h-full w-full cursor-grab touch-none active:cursor-grabbing" />
+  );
 }

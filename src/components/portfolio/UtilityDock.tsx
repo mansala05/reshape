@@ -35,7 +35,14 @@ function useGlobalSoundEffects() {
   }, []);
 }
 
-type Sample = { fps: number; ms: number; calls: number; triangles: number; dpr: number; heap: number | null };
+type Sample = {
+  fps: number;
+  ms: number;
+  calls: number;
+  triangles: number;
+  dpr: number;
+  heap: number | null;
+};
 
 function StatsPanel({ onClose }: { onClose: () => void }) {
   const [s, setS] = useState<Sample>({ fps: 0, ms: 0, calls: 0, triangles: 0, dpr: 1, heap: null });
@@ -79,7 +86,12 @@ function StatsPanel({ onClose }: { onClose: () => void }) {
     <div className="w-[220px] rounded-lg border border-border p-3 font-mono text-[11px] shadow-2xl glass animate-in fade-in slide-in-from-bottom-2">
       <div className="flex items-center justify-between">
         <span className="uppercase tracking-[0.18em] text-muted-foreground">Perf monitor</span>
-        <button type="button" onClick={onClose} aria-label="Close stats" className="text-muted-foreground hover:text-foreground">
+        <button
+          type="button"
+          onClick={onClose}
+          aria-label="Close stats"
+          className="text-muted-foreground hover:text-foreground"
+        >
           <X className="h-3.5 w-3.5" />
         </button>
       </div>
@@ -88,7 +100,14 @@ function StatsPanel({ onClose }: { onClose: () => void }) {
         <span className="text-muted-foreground">fps · {s.ms}ms</span>
       </div>
       <svg viewBox="0 0 160 38" className="mt-1 h-9 w-full" aria-hidden>
-        <line x1="0" x2="160" y1={36 - (60 / max) * 32} y2={36 - (60 / max) * 32} stroke="var(--border)" strokeDasharray="2 3" />
+        <line
+          x1="0"
+          x2="160"
+          y1={36 - (60 / max) * 32}
+          y2={36 - (60 / max) * 32}
+          stroke="var(--border)"
+          strokeDasharray="2 3"
+        />
         <polyline points={points} fill="none" stroke="var(--poppy-bright)" strokeWidth="1.5" />
       </svg>
       <dl className="mt-2 grid grid-cols-2 gap-y-1 text-muted-foreground">
@@ -145,7 +164,11 @@ export function UtilityDock() {
             setReducedMotion(!reduced);
             playSound("toggle");
           }}
-          className={cn(btn, reduced && "border-powder bg-powder text-primary-foreground hover:text-primary-foreground")}
+          className={cn(
+            btn,
+            reduced &&
+              "border-powder bg-powder text-primary-foreground hover:text-primary-foreground",
+          )}
         >
           {reduced ? <Gauge className="h-4 w-4" /> : <Waves className="h-4 w-4" />}
         </button>

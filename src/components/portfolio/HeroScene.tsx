@@ -186,14 +186,88 @@ type FlowerDef = {
 };
 
 const FLOWERS: FlowerDef[] = [
-  { pos: [1.9, -0.1, 0], scale: 1.45, facing: [1.05, 0, -0.35], petals: "chrome", center: "poppy", rings: BLOOM, stamens: 14, drift: 0.25, stem: true },
-  { pos: [0.3, 2.55, -2.2], scale: 0.74, facing: [1.2, 0, 0.5], petals: "glass", center: "chrome", rings: LILY, stamens: 8, drift: 0.6 },
-  { pos: [4.3, 1.9, -1.2], scale: 0.62, facing: [0.6, 0, -0.6], petals: "poppy", center: "chrome", rings: TULIP, stamens: 0, drift: 0.8 },
-  { pos: [3.7, -2.4, -0.5], scale: 0.72, facing: [1.3, 0, -0.2], petals: "glass", center: "poppy", rings: BLOOM, stamens: 10, drift: 0.5, stem: true },
-  { pos: [-0.6, -2.1, 0.7], scale: 0.42, facing: [1.1, 0, 0.4], petals: "chrome", center: "poppy", rings: LILY, stamens: 6, drift: 0.9 },
-  { pos: [5.6, 0.1, -2.6], scale: 0.6, facing: [0.8, 0, -0.8], petals: "chrome", center: "poppy", rings: TULIP, stamens: 0, drift: 0.7 },
-  { pos: [1.9, 3.3, -4.4], scale: 0.5, facing: [1.1, 0, 0.2], petals: "poppy", center: "chrome", rings: BLOOM, stamens: 8, drift: 0.65 },
-  { pos: [2.4, -3.3, -2.2], scale: 0.38, facing: [0.9, 0, 0.3], petals: "glass", center: "poppy", rings: TULIP, stamens: 0, drift: 1.1 },
+  {
+    pos: [1.9, -0.1, 0],
+    scale: 1.45,
+    facing: [1.05, 0, -0.35],
+    petals: "chrome",
+    center: "poppy",
+    rings: BLOOM,
+    stamens: 14,
+    drift: 0.25,
+    stem: true,
+  },
+  {
+    pos: [0.3, 2.55, -2.2],
+    scale: 0.74,
+    facing: [1.2, 0, 0.5],
+    petals: "glass",
+    center: "chrome",
+    rings: LILY,
+    stamens: 8,
+    drift: 0.6,
+  },
+  {
+    pos: [4.3, 1.9, -1.2],
+    scale: 0.62,
+    facing: [0.6, 0, -0.6],
+    petals: "poppy",
+    center: "chrome",
+    rings: TULIP,
+    stamens: 0,
+    drift: 0.8,
+  },
+  {
+    pos: [3.7, -2.4, -0.5],
+    scale: 0.72,
+    facing: [1.3, 0, -0.2],
+    petals: "glass",
+    center: "poppy",
+    rings: BLOOM,
+    stamens: 10,
+    drift: 0.5,
+    stem: true,
+  },
+  {
+    pos: [-0.6, -2.1, 0.7],
+    scale: 0.42,
+    facing: [1.1, 0, 0.4],
+    petals: "chrome",
+    center: "poppy",
+    rings: LILY,
+    stamens: 6,
+    drift: 0.9,
+  },
+  {
+    pos: [5.6, 0.1, -2.6],
+    scale: 0.6,
+    facing: [0.8, 0, -0.8],
+    petals: "chrome",
+    center: "poppy",
+    rings: TULIP,
+    stamens: 0,
+    drift: 0.7,
+  },
+  {
+    pos: [1.9, 3.3, -4.4],
+    scale: 0.5,
+    facing: [1.1, 0, 0.2],
+    petals: "poppy",
+    center: "chrome",
+    rings: BLOOM,
+    stamens: 8,
+    drift: 0.65,
+  },
+  {
+    pos: [2.4, -3.3, -2.2],
+    scale: 0.38,
+    facing: [0.9, 0, 0.3],
+    petals: "glass",
+    center: "poppy",
+    rings: TULIP,
+    stamens: 0,
+    drift: 1.1,
+  },
 ];
 
 const petalCount = (rings: Ring[]) => rings.reduce((n, r) => n + r.count, 0);
@@ -303,7 +377,10 @@ function Flora({
       onRipple(hit.clone());
       const local = g.worldToLocal(hit.clone());
       bodies.forEach((b, i) => {
-        tmpDir.set(...FLOWERS[i]!.pos).add(b.offset).sub(local);
+        tmpDir
+          .set(...FLOWERS[i]!.pos)
+          .add(b.offset)
+          .sub(local);
         const d = Math.max(0.6, tmpDir.length());
         const fall = 1 / (d * d * 0.3 + 1);
         tmpDir.normalize().multiplyScalar(IMPULSE * amp(CALM.impulse) * fall);
@@ -332,7 +409,11 @@ function Flora({
       b.vel.multiplyScalar(Math.exp(-DAMP * dt));
       b.offset.addScaledVector(b.vel, dt);
       const bob = Math.sin(t * 0.6 * def.drift + i) * 0.1 * amp(CALM.bob);
-      outer.position.set(def.pos[0] + b.offset.x, def.pos[1] + b.offset.y + bob, def.pos[2] + b.offset.z);
+      outer.position.set(
+        def.pos[0] + b.offset.x,
+        def.pos[1] + b.offset.y + bob,
+        def.pos[2] + b.offset.z,
+      );
 
       // Bloom pulse: a spring that overshoots, so petals open then settle.
       b.bloomVel += -BLOOM_SPRING * b.bloom * dt;
@@ -353,7 +434,10 @@ function Flora({
       const breath = Math.sin(t * 0.7 + i * 1.7) * BREATHE * amp(CALM.breathe);
       let k = 0;
       def.rings.forEach((ring, ri) => {
-        const tilt = Math.min(1.8, ring.open * (1 + b.bloom * (0.55 + ri * 0.25)) + breath * (1 + ri * 0.4));
+        const tilt = Math.min(
+          1.8,
+          ring.open * (1 + b.bloom * (0.55 + ri * 0.25)) + breath * (1 + ri * 0.4),
+        );
         const r0 = 0.07 - ri * 0.015;
         for (let p = 0; p < ring.count; p++) {
           const yaw = (p / ring.count) * Math.PI * 2 + ri * (Math.PI / ring.count);
@@ -446,7 +530,17 @@ function Flora({
 /* ------------------------------------------------------------------ */
 
 const LOOSE = 32;
-type Loose = { p: THREE.Vector3; v: THREE.Vector3; rot: THREE.Vector3; rs: THREE.Vector3; ph: number; f: number; s: number; slot: number; red: boolean };
+type Loose = {
+  p: THREE.Vector3;
+  v: THREE.Vector3;
+  rot: THREE.Vector3;
+  rs: THREE.Vector3;
+  ph: number;
+  f: number;
+  s: number;
+  slot: number;
+  red: boolean;
+};
 
 function LoosePetals({
   register,
@@ -525,7 +619,11 @@ function LoosePetals({
 
   return (
     <>
-      <instancedMesh ref={chrome} args={[geo, mats.chrome, LOOSE - redCount]} frustumCulled={false} />
+      <instancedMesh
+        ref={chrome}
+        args={[geo, mats.chrome, LOOSE - redCount]}
+        frustumCulled={false}
+      />
       <instancedMesh ref={red} args={[geo, mats.poppy, redCount]} frustumCulled={false} />
     </>
   );
@@ -607,7 +705,14 @@ function Dust() {
   });
   return (
     <points ref={ref} geometry={geo}>
-      <pointsMaterial color={palette.powder} size={0.028} sizeAttenuation transparent opacity={0.45} depthWrite={false} />
+      <pointsMaterial
+        color={palette.powder}
+        size={0.028}
+        sizeAttenuation
+        transparent
+        opacity={0.45}
+        depthWrite={false}
+      />
     </points>
   );
 }
@@ -664,8 +769,22 @@ function Rig({ onReady }: { onReady: () => void }) {
 
   return (
     <>
-      <pointLight ref={red} color={palette.poppyBright} intensity={20} distance={14} decay={1.6} position={[3, 0, 3]} />
-      <pointLight ref={blue} color={palette.powder} intensity={22} distance={16} decay={1.6} position={[-2, 2, 3]} />
+      <pointLight
+        ref={red}
+        color={palette.poppyBright}
+        intensity={20}
+        distance={14}
+        decay={1.6}
+        position={[3, 0, 3]}
+      />
+      <pointLight
+        ref={blue}
+        color={palette.powder}
+        intensity={22}
+        distance={16}
+        decay={1.6}
+        position={[-2, 2, 3]}
+      />
     </>
   );
 }
@@ -685,11 +804,40 @@ export default function HeroScene({ onReady }: { onReady: () => void }) {
       <directionalLight position={[4, 6, 5]} intensity={1.3} color={"#ffffff"} />
       {/* Studio reflections for the chrome: soft white top, powder strips, poppy accents. */}
       <Environment resolution={256} frames={1}>
-        <Lightformer intensity={2.4} position={[0, 5, -2]} scale={[12, 4, 1]} rotation-x={Math.PI / 2} />
-        <Lightformer intensity={1.6} color={palette.powder} position={[-6, 1, 0]} rotation-y={Math.PI / 2} scale={[20, 2.5, 1]} />
-        <Lightformer intensity={1.1} color={palette.powder} position={[0, -4, 3]} rotation-x={-Math.PI / 2} scale={[14, 3, 1]} />
-        <Lightformer intensity={2} color={palette.poppyBright} position={[6, -1, 1]} rotation-y={-Math.PI / 2} scale={[10, 1, 1]} />
-        <Lightformer form="ring" intensity={1.6} color={palette.poppyBright} position={[3, 2, 6]} scale={1.6} />
+        <Lightformer
+          intensity={2.4}
+          position={[0, 5, -2]}
+          scale={[12, 4, 1]}
+          rotation-x={Math.PI / 2}
+        />
+        <Lightformer
+          intensity={1.6}
+          color={palette.powder}
+          position={[-6, 1, 0]}
+          rotation-y={Math.PI / 2}
+          scale={[20, 2.5, 1]}
+        />
+        <Lightformer
+          intensity={1.1}
+          color={palette.powder}
+          position={[0, -4, 3]}
+          rotation-x={-Math.PI / 2}
+          scale={[14, 3, 1]}
+        />
+        <Lightformer
+          intensity={2}
+          color={palette.poppyBright}
+          position={[6, -1, 1]}
+          rotation-y={-Math.PI / 2}
+          scale={[10, 1, 1]}
+        />
+        <Lightformer
+          form="ring"
+          intensity={1.6}
+          color={palette.poppyBright}
+          position={[3, 2, 6]}
+          scale={1.6}
+        />
         <Lightformer form="ring" intensity={1.2} position={[-2, 0, 8]} scale={4} />
       </Environment>
       <Rig onReady={onReady} />

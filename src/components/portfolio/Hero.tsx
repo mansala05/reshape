@@ -6,7 +6,8 @@ import { profile } from "@/data/portfolio";
 function LocalTime() {
   const [time, setTime] = useState<string>("--:--:--");
   useEffect(() => {
-    const fmt = () => setTime(new Date().toLocaleTimeString("en-GB", { timeZone: "Asia/Colombo", hour12: false }));
+    const fmt = () =>
+      setTime(new Date().toLocaleTimeString("en-GB", { timeZone: "Asia/Colombo", hour12: false }));
     fmt();
     const id = window.setInterval(fmt, 1000);
     return () => window.clearInterval(id);
@@ -17,12 +18,15 @@ function LocalTime() {
 function LocalDate() {
   const [date, setDate] = useState<string>("--");
   useEffect(() => {
-    const format = () => setDate(new Date().toLocaleDateString("en-GB", {
-      timeZone: "Asia/Colombo",
-      day: "2-digit",
-      month: "short",
-      year: "numeric",
-    }));
+    const format = () =>
+      setDate(
+        new Date().toLocaleDateString("en-GB", {
+          timeZone: "Asia/Colombo",
+          day: "2-digit",
+          month: "short",
+          year: "numeric",
+        }),
+      );
     format();
     const id = window.setInterval(format, 60_000);
     return () => window.clearInterval(id);
@@ -32,7 +36,10 @@ function LocalDate() {
 export function Hero() {
   const [first, ...rest] = profile.name.split(" ");
   return (
-    <section id="top" className="relative flex min-h-[100svh] flex-col justify-end px-5 pb-16 pt-28 md:px-8">
+    <section
+      id="top"
+      className="relative flex min-h-[100svh] flex-col justify-end px-5 pb-16 pt-28 md:px-8"
+    >
       <div className="mx-auto w-full max-w-7xl">
         <div className="animate-rise" style={{ animationDelay: "0.1s" }}>
           <span className="inline-flex items-center gap-2.5 rounded-full border border-poppy/40 bg-poppy/10 py-1.5 pl-2.5 pr-4 font-mono text-[11px] uppercase tracking-[0.14em] text-foreground">
@@ -53,8 +60,12 @@ export function Hero() {
 
         <div className="mt-10 grid gap-8 md:grid-cols-12 md:items-end">
           <div className="animate-rise md:col-span-6" style={{ animationDelay: "0.45s" }}>
-            <p className="font-serif text-3xl italic leading-tight text-foreground md:text-4xl">{profile.title}</p>
-            <p className="mt-4 max-w-md text-base leading-relaxed text-muted-foreground">{profile.tagline}</p>
+            <p className="font-serif text-3xl italic leading-tight text-foreground md:text-4xl">
+              {profile.title}
+            </p>
+            <p className="mt-4 max-w-md text-base leading-relaxed text-muted-foreground">
+              {profile.tagline}
+            </p>
           </div>
 
           <dl
@@ -80,7 +91,9 @@ export function Hero() {
             </div>
             <div>
               <dt className="text-powder/60">Date</dt>
-              <dd className="mt-1 text-foreground"><LocalDate /></dd>
+              <dd className="mt-1 text-foreground">
+                <LocalDate />
+              </dd>
             </div>
           </dl>
         </div>
@@ -88,7 +101,3 @@ export function Hero() {
     </section>
   );
 }
-
-
-
-
