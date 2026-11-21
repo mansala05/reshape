@@ -294,7 +294,7 @@ function Reel() {
         className={cn(
           "lab-stage",
           pinned
-            ? "sticky top-0 flex h-[max(42rem,80svh)] flex-col justify-start overflow-hidden pt-24"
+            ? "sticky top-0 flex h-[max(42rem,80svh)] flex-col justify-start overflow-clip pt-24"
             : "lab-scroller snap-x snap-mandatory overflow-x-auto overscroll-x-contain pb-2",
         )}
       >
