@@ -1,0 +1,351 @@
+/*
+ * Tailwind v4 entry: config lives here, with no tailwind.config.js or PostCSS plugin.
+ * - Keep every @import in this top block, above @theme and the rest of the file. Install an
+ *   npm package before @importing its CSS. Never @import a remote URL (web fonts, CDN CSS): the
+ *   build resolves @import from the filesystem. Load those with a <link> in the head() of
+ *   src/routes/__root.tsx and name the family in a --font-* token in @theme inline below.
+ */
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+/* Reduced-motion mode: set by src/lib/motion.ts on <html>. */
+@custom-variant reduced (&:where(.reduce-motion, .reduce-motion *));
+
+@theme inline {
+  --font-sans: "Geist", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, "SFMono-Regular", monospace;
+  --font-serif: "Instrument Serif", ui-serif, Georgia, serif;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-poppy: var(--poppy);
+  --color-poppy-bright: var(--poppy-bright);
+  --color-poppy-foreground: var(--poppy-foreground);
+  --color-powder: var(--powder);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+/* Raven black / powder blue / poppy red. The site is dark-only. */
+:root {
+  --radius: 0.5rem;
+  --background: oklch(0.159 0.007 271);
+  --foreground: oklch(0.959 0.007 248);
+  --surface: oklch(0.2 0.01 268);
+  --surface-2: oklch(0.239 0.014 267);
+  --card: oklch(0.185 0.009 269 / 70%);
+  --card-foreground: oklch(0.959 0.007 248);
+  --popover: oklch(0.19 0.01 268);
+  --popover-foreground: oklch(0.959 0.007 248);
+  --primary: oklch(0.815 0.052 238.6);
+  --primary-foreground: oklch(0.159 0.007 271);
+  --powder: oklch(0.815 0.052 238.6);
+  --poppy: oklch(0.612 0.208 22.2);
+  --poppy-bright: oklch(0.651 0.235 23.2);
+  --poppy-foreground: oklch(0.985 0.005 20);
+  --secondary: oklch(0.239 0.014 267);
+  --secondary-foreground: oklch(0.959 0.007 248);
+  --muted: oklch(0.239 0.014 267);
+  --muted-foreground: oklch(0.658 0.023 261.7);
+  --accent: oklch(0.26 0.02 250);
+  --accent-foreground: oklch(0.959 0.007 248);
+  --destructive: oklch(0.612 0.208 22.2);
+  --destructive-foreground: oklch(0.985 0.005 20);
+  --border: oklch(0.815 0.052 238.6 / 12%);
+  --input: oklch(0.815 0.052 238.6 / 16%);
+  --ring: oklch(0.815 0.052 238.6 / 60%);
+  --chart-1: oklch(0.815 0.052 238.6);
+  --chart-2: oklch(0.612 0.208 22.2);
+  --chart-3: oklch(0.7 0.08 238);
+  --chart-4: oklch(0.55 0.04 250);
+  --chart-5: oklch(0.651 0.235 23.2);
+  --sidebar: oklch(0.185 0.009 269);
+  --sidebar-foreground: oklch(0.959 0.007 248);
+  --sidebar-primary: oklch(0.815 0.052 238.6);
+  --sidebar-primary-foreground: oklch(0.159 0.007 271);
+  --sidebar-accent: oklch(0.239 0.014 267);
+  --sidebar-accent-foreground: oklch(0.959 0.007 248);
+  --sidebar-border: oklch(0.815 0.052 238.6 / 12%);
+  --sidebar-ring: oklch(0.815 0.052 238.6 / 60%);
+
+  --grid-line: oklch(0.815 0.052 238.6 / 5%);
+  --glow-powder: 0 0 0 1px oklch(0.815 0.052 238.6 / 30%), 0 20px 60px -20px oklch(0.815 0.052 238.6 / 35%);
+  --glow-poppy: 0 0 0 1px oklch(0.651 0.235 23.2 / 50%), 0 12px 40px -12px oklch(0.651 0.235 23.2 / 60%);
+  --shadow-print: 0 36px 70px -30px oklch(0 0 0 / 85%);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    color-scheme: dark;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    font-feature-settings: "ss01", "cv11";
+  }
+
+  ::selection {
+    background: var(--poppy);
+    color: var(--poppy-foreground);
+  }
+}
+
+@utility grid-texture {
+  background-image:
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 56px 56px;
+  background-position: -1px -1px;
+}
+
+@utility glass {
+  background: oklch(0.185 0.009 269 / 55%);
+  backdrop-filter: blur(18px) saturate(140%);
+}
+
+@utility glow-powder {
+  box-shadow: var(--glow-powder);
+}
+
+@utility glow-poppy {
+  box-shadow: var(--glow-poppy);
+}
+
+/* Film sprocket holes for the poster reel. */
+@utility sprockets {
+  background-image: linear-gradient(90deg, var(--background) 0 14px, transparent 14px 30px);
+  background-size: 30px 100%;
+  mask-image: linear-gradient(90deg, transparent, black 6%, black 94%, transparent);
+  border-radius: 2px;
+}
+
+@utility text-balance-tight {
+  text-wrap: balance;
+  letter-spacing: -0.035em;
+}
+
+@keyframes blink {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes pulse-dot {
+  0% {
+    box-shadow: 0 0 0 0 oklch(0.651 0.235 23.2 / 70%);
+  }
+  70% {
+    box-shadow: 0 0 0 10px oklch(0.651 0.235 23.2 / 0%);
+  }
+  100% {
+    box-shadow: 0 0 0 0 oklch(0.651 0.235 23.2 / 0%);
+  }
+}
+
+@keyframes scroll-cue {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(200%);
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+    filter: blur(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+@utility animate-blink {
+  animation: blink 1s steps(1) infinite;
+}
+
+@utility animate-pulse-dot {
+  animation: pulse-dot 2s ease-out infinite;
+}
+
+@utility animate-scroll-cue {
+  animation: scroll-cue 1.8s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+}
+
+@utility animate-rise {
+  animation: rise 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+/* Scroll-reveal: elements with [data-reveal] fade up once they enter the viewport. */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.8s cubic-bezier(0.2, 0.7, 0.2, 1),
+    transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/*
+ * Reduced-motion mode. `.reduce-motion` on <html> comes from the system setting or the
+ * visitor's toggle. Before scripts run, the media query covers system-reduced visitors.
+ * Colors and opacity still transition so feedback stays; movement is removed.
+ */
+@media (prefers-reduced-motion: reduce) {
+  html:not(.motion-ready) {
+    scroll-behavior: auto;
+  }
+  html:not(.motion-ready) [data-reveal] {
+    opacity: 1;
+    transform: none;
+  }
+  html:not(.motion-ready) .animate-rise {
+    animation: none;
+  }
+}
+
+html.reduce-motion {
+  scroll-behavior: auto;
+}
+.reduce-motion [data-reveal] {
+  transform: none;
+  transition: opacity 0.3s linear;
+}
+.reduce-motion .animate-rise {
+  animation: fade-only 0.4s linear both;
+}
+.reduce-motion .animate-scroll-cue {
+  animation: none;
+  transform: translateY(50%);
+}
+.reduce-motion .animate-pulse-dot,
+.reduce-motion .animate-blink {
+  animation: none;
+}
+/* Dialog zoom/slide entrances become simple fades. */
+.reduce-motion [data-state="open"],
+.reduce-motion [data-state="closed"] {
+  --tw-enter-scale: 1;
+  --tw-exit-scale: 1;
+  --tw-enter-translate-x: 0;
+  --tw-enter-translate-y: 0;
+  --tw-exit-translate-x: 0;
+  --tw-exit-translate-y: 0;
+}
+.reduce-motion *,
+.reduce-motion *::before,
+.reduce-motion *::after {
+  transition-property: color, background-color, border-color, opacity, box-shadow, fill, stroke !important;
+}
+
+@keyframes fade-only {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/*
+ * Lab reel sizing. Container units follow the reel's own width, so the first card lines up
+ * with the page column and about three cards fit on desktop.
+ */
+.lab-stage {
+  container-type: inline-size;
+  --lab-gap: 1rem;
+  --lab-pad: max(1.25rem, calc((100cqw - 80rem) / 2));
+  scrollbar-width: none;
+}
+.lab-stage::-webkit-scrollbar {
+  display: none;
+}
+.lab-scroller {
+  scroll-padding-inline: var(--lab-pad);
+}
+.lab-track {
+  gap: var(--lab-gap);
+  padding-inline: var(--lab-pad);
+}
+.lab-card {
+  width: 82cqw;
+}
+@media (min-width: 640px) {
+  .lab-card {
+    width: 56cqw;
+  }
+}
+@media (min-width: 768px) {
+  .lab-stage {
+    --lab-gap: 1.25rem;
+    --lab-pad: max(2rem, calc((100cqw - 80rem) / 2));
+  }
+  .lab-card {
+    width: calc((100cqw - 2 * var(--lab-pad) - var(--lab-gap)) / 2.2);
+  }
+}
+@media (min-width: 1024px) {
+  .lab-card {
+    width: calc((100cqw - 2 * var(--lab-pad) - 2 * var(--lab-gap)) / 3);
+  }
+}
