@@ -1,6 +1,6 @@
-# Creative Signal portfolio
+# Mansala Liyanage Portfolio
 
-This is an independent local copy of the Creative Signal portfolio. Edit your name, bio, contact links, and projects in `src/data/portfolio.ts`.
+This is Mansala Liyanage's portfolio. Edit your name, contact links, and projects in `src/data/portfolio.ts`.
 
 ## Local development
 
