@@ -284,10 +284,9 @@ export const about = {
   statement: "They weren’t more talented than you. They were just brave enough to try.",
   statementLabel: "",
   portrait: {
-    /** Put a photo in /public (e.g. "/portrait.jpg") or paste an image URL. Leave empty for the placeholder frame. */
     src: "/mansala-portrait.png",
     alt: "Portrait of Mansala Liyanage",
-    badges: ["That's me : )", "Mansi not Mansala"],
+    badges: ["That's me :)", "Mansi not Mansala"],
   },
 };
 
