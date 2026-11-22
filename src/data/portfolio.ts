@@ -191,21 +191,40 @@ export const projects: Project[] = [
     ],
   },
   {
-    id: "spatial-canvas",
+    id: "surgimap",
     index: "03",
-    title: "Spatial 3D Interactive Canvas",
-    year: "2025",
-    role: "Interaction Design · R&D",
-    summary: "A point-cloud sphere you can grab, spin and throw.",
+    title: "SurgiMap",
+    year: "2026",
+    role: "Frontend Developer · UI/UX Lead · Presenter",
+    summary:
+      "A healthcare web app prototype that helps patients find nearby pharmacies with urgently needed surgical kits using simulated inventory sync.",
     description:
-      "An exploration of spatial interfaces for the browser: a 3D point field with inertial drag, depth sorting and perspective projection. Placeholder copy — add context and outcomes.",
-    tags: ["Three.js", "Spatial UI", "Physics"],
-    preview: "spatial",
-    links: [
-      { label: "Live demo", href: "#" },
-      { label: "Case study", href: "#" },
+      "Built with the four-member Team Shadow Stack for HackElite 3.0. I led UI/UX and frontend development, built search and stock availability interfaces, integrated maps, contact actions and APIs, improved responsiveness, and presented the project.",
+    tags: [
+      "React",
+      "TypeScript",
+      "Vite",
+      "Tailwind CSS",
+      "Python",
+      "FastAPI",
+      "PostgreSQL",
+      "SQLite",
+      "REST APIs",
     ],
-    award: { label: "Finalist", event: "Placeholder XR Hackathon" },
+    links: [
+      {
+        label: "GitHub",
+        href: "https://github.com/mansala05/SurgiMap-Repo",
+      },
+      {
+        label: "Demo video",
+        href: "https://youtu.be/QHgVebhWjoM",
+      },
+    ],
+    award: {
+      label: "Top 12 finalist",
+      event: "HackElite 3.0 · 2026",
+    },
   },
   {
     id: "kinetic-type",
