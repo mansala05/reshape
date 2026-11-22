@@ -377,13 +377,35 @@ function ProjectScreenshots({ screenshots }: { screenshots: NonNullable<Project[
   return (
     <div className="flex h-full flex-col">
       <figure className="flex min-h-0 flex-1 flex-col">
-        <img
-          src={screenshot.src}
-          alt={screenshot.alt}
-          className="h-80 w-full object-contain md:h-[460px]"
-        />
+        <div
+          key={screenshot.src}
+          className="h-80 overflow-auto md:h-[460px]"
+          tabIndex={screenshot.scrollable ? 0 : undefined}
+          role={screenshot.scrollable ? "region" : undefined}
+          aria-label={screenshot.scrollable ? "Scrollable screenshot" : undefined}
+        >
+          <img
+            src={screenshot.src}
+            alt={screenshot.alt}
+            className={
+              screenshot.scrollable
+                ? "h-auto w-full min-w-[640px] max-w-none"
+                : "h-full w-full object-contain"
+            }
+          />
+        </div>
         <figcaption className="px-5 py-3 text-sm text-muted-foreground">
           {screenshot.alt}
+          {screenshot.scrollable && (
+            <a
+              className="mt-2 block text-powder underline"
+              href={screenshot.src}
+              target="_blank"
+              rel="noreferrer"
+            >
+              Open full-size image
+            </a>
+          )}
         </figcaption>
       </figure>
       <div className="flex gap-2 overflow-x-auto p-4" aria-label="Project screenshots">
