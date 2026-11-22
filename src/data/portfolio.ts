@@ -70,7 +70,7 @@ export const projects: Project[] = [
     summary:
       "An AI receivables agent that reviews overdue invoices, uses customer context to choose a response, and routes sensitive decisions to a person for approval.",
     description:
-      "Built with Team ORBIT for NeuroX 1.0 in July 2026. I worked on the backend, including Supabase decision persistence and audit trails, human approval and execution flows, reply handling, and recovery from incomplete runs. After the initial team build, I used Codex to develop and test the demo workflows, including clearer decision statuses, approval and edit actions, email delivery visibility, search, notifications, seeded scenarios, and documentation.",
+      "Built with Team ORBIT for NeuroX 1.0. I worked on backend decision logging, audit trails, approvals, reply handling, and recovery flows, then used Codex to refine and test the demo workflows.",
     tags: [
       "TypeScript",
       "Next.js",
@@ -130,7 +130,7 @@ export const projects: Project[] = [
     summary:
       "A mobile app concept connecting drivers facing vehicle breakdowns with nearby mechanics.",
     description:
-      "Created with Hello-World-Domain for CodeSprint 11, organised by the IEEE Student Branch of IIT, Sri Lanka, during April–May 2026. We participated in the Envision Phase. I worked on early Figma designs and handed off component specifications, colours, fonts, spacing, and assets, then collaborated with three teammates on UI/frontend development. My work plan covered Splash, Onboarding, Login, Register, Profile, Request History, Notifications, FAQ / Help, and App Info screens. Planned app features included help requests, live location and maps, mechanic matching, tracking, ratings, chat, and notifications. The team stack included React Native and Expo, Node.js and Express, Firebase Auth, Firestore, Firebase Storage, Firebase Cloud Messaging, react-native-maps, and GPS / Google Maps integration.",
+      "A mobile app concept created with Hello-World-Domain for CodeSprint 11. I worked on the early Figma designs, handed off UI specifications, and collaborated with three teammates on the frontend.",
     tags: [
       "React Native",
       "Expo",
