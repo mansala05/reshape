@@ -166,6 +166,7 @@ function Reel() {
   const bar = useRef<HTMLSpanElement>(null);
   const counter = useRef<HTMLSpanElement>(null);
   const [distance, setDistance] = useState(0);
+  const [stageHeight, setStageHeight] = useState(0);
   const distanceRef = useRef(0);
 
   const step = useCallback(() => {
@@ -201,6 +202,7 @@ function Reel() {
       const d = Math.max(0, t.offsetWidth - st.clientWidth);
       distanceRef.current = d;
       setDistance(d);
+      setStageHeight(st.offsetHeight);
     };
     measure();
     const ro = new ResizeObserver(measure);
@@ -294,14 +296,14 @@ function Reel() {
     <div
       ref={wrap}
       className="relative mt-12"
-      style={pinned ? { height: `calc(max(42rem, 80svh) + ${distance}px)` } : undefined}
+      style={pinned && stageHeight ? { height: stageHeight + distance } : undefined}
     >
       <div
         ref={stage}
         className={cn(
           "lab-stage",
           pinned
-            ? "sticky top-0 flex h-[max(42rem,80svh)] flex-col justify-start overflow-clip pt-24"
+            ? "sticky top-0 flex min-h-[max(42rem,80svh)] flex-col justify-start overflow-clip pb-6 pt-24"
             : "lab-scroller snap-x snap-mandatory overflow-x-auto overscroll-x-contain pb-2",
         )}
       >
