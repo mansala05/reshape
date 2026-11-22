@@ -53,7 +53,7 @@ export type Project = {
   tags: string[];
   /** Which live demo runs on the card and in the modal. */
   preview?: PreviewKind;
-  screenshots?: { src: string; alt: string; scrollable?: boolean }[];
+  screenshots?: { src: string; alt: string; crop?: boolean }[];
   coverFit?: "cover" | "contain";
   links: { label: string; href: string }[];
   /** Set for projects that reached a competition final; shows the poppy "Finalist" badge. Delete the line if not. */
@@ -215,27 +215,27 @@ export const projects: Project[] = [
       {
         src: "/projects/surgimap/homepage.png",
         alt: "SurgiMap prototype homepage",
-        scrollable: true,
+        crop: true,
       },
       {
         src: "/projects/surgimap/pharmacy-results.png",
         alt: "Surgical-kit search results with simulated stock availability and pharmacy contact actions",
-        scrollable: true,
+        crop: true,
       },
       {
         src: "/projects/surgimap/map-view.png",
         alt: "Pharmacy map view with directions and inventory sync status",
-        scrollable: true,
+        crop: true,
       },
       {
         src: "/projects/surgimap/search-empty.png",
         alt: "Search empty state with suggested surgical kits",
-        scrollable: true,
+        crop: true,
       },
       {
         src: "/projects/surgimap/how-it-works.png",
         alt: "SurgiMap guide to searching, checking stock, and contacting pharmacies",
-        scrollable: true,
+        crop: true,
       },
     ],
     links: [
