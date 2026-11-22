@@ -52,7 +52,8 @@ export type Project = {
   description: string;
   tags: string[];
   /** Which live demo runs on the card and in the modal. */
-  preview: PreviewKind;
+  preview?: PreviewKind;
+  screenshots?: { src: string; alt: string }[];
   links: { label: string; href: string }[];
   /** Set for projects that reached a competition final; shows the poppy "Finalist" badge. Delete the line if not. */
   award?: { label: string; event: string };
@@ -60,21 +61,64 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    id: "audio-visualizer",
+    id: "invoice-chaser",
     index: "01",
-    title: "WebGL Audio Reactive Visualizer",
+    title: "InvoiceChaser",
     year: "2026",
-    role: "Concept · Engineering",
-    summary: "FFT-driven radial geometry that breathes with any audio source.",
+    role: "Backend Development · Team ORBIT",
+    summary:
+      "An AI receivables agent that reviews overdue invoices, uses customer context to choose a response, and routes sensitive decisions to a person for approval.",
     description:
-      "A real-time visualizer that maps frequency bins from the Web Audio API onto a radial field. Placeholder copy — describe the brief, your approach, and the result.",
-    tags: ["Web Audio", "WebGL", "FFT"],
-    preview: "audio",
-    links: [
-      { label: "Live demo", href: "#" },
-      { label: "Source", href: "#" },
+      "Built with Team ORBIT for NeuroX 1.0 in July 2026. I worked on the backend, including Supabase decision persistence and audit trails, human approval and execution flows, reply handling, and recovery from incomplete runs. After the initial team build, I used Codex to develop and test the demo workflows, including clearer decision statuses, approval and edit actions, email delivery visibility, search, notifications, seeded scenarios, and documentation.",
+    tags: [
+      "TypeScript",
+      "Next.js",
+      "React",
+      "Supabase (PostgreSQL)",
+      "Google Gemini",
+      "Gmail API",
+      "Tailwind CSS",
     ],
-    award: { label: "Finalist", event: "Creative Code Awards 2026" },
+    screenshots: [
+      {
+        src: "/projects/invoice-chaser/dashboard.png",
+        alt: "InvoiceChaser dashboard showing overdue balances, approval counts, trends, and recent decisions",
+      },
+      {
+        src: "/projects/invoice-chaser/approval-queue.png",
+        alt: "Approval queue with agent reasoning and approve, edit, and override actions",
+      },
+      {
+        src: "/projects/invoice-chaser/decisions.png",
+        alt: "Invoice decisions with confidence and review status",
+      },
+      {
+        src: "/projects/invoice-chaser/executed.png",
+        alt: "Completed invoice actions filtered by execution source",
+      },
+      {
+        src: "/projects/invoice-chaser/agent-run.png",
+        alt: "Agent run summary showing invoices already handled in their current state",
+      },
+    ],
+    links: [
+      {
+        label: "GitHub",
+        href: "https://github.com/invoice-chaser-orbit/Invoice-Chaser",
+      },
+      {
+        label: "Devpost",
+        href: "https://devpost.com/software/team-orbit-invoicechaser",
+      },
+      {
+        label: "Qualification video",
+        href: "https://youtu.be/ZMG6575WliY",
+      },
+    ],
+    award: {
+      label: "Top 15 finalist",
+      event: "NeuroX 1.0 · July 2026",
+    },
   },
   {
     id: "glsl-fluid",

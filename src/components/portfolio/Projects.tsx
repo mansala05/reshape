@@ -45,7 +45,14 @@ function Thumb({ project, live }: { project: Project; live: boolean }) {
   return (
     <div className="relative aspect-[16/10] overflow-hidden">
       <div className="absolute inset-0 border-b border-border bg-background" />
-      {live ? (
+      {project.screenshots?.[0] ? (
+        <img
+          src={project.screenshots[0].src}
+          alt={project.screenshots[0].alt}
+          className="absolute inset-0 h-full w-full object-cover object-top"
+          loading="lazy"
+        />
+      ) : live && project.preview ? (
         <div className="pointer-events-none absolute inset-0 animate-in fade-in duration-500">
           <ProjectPreview kind={project.preview} interactive={false} />
         </div>
@@ -357,6 +364,49 @@ function Reel() {
   );
 }
 
+function ProjectScreenshots({ screenshots }: { screenshots: NonNullable<Project["screenshots"]> }) {
+  const [selected, setSelected] = useState(0);
+  const screenshot = screenshots[selected];
+  if (!screenshot) return null;
+
+  return (
+    <div className="flex h-full flex-col">
+      <figure className="flex min-h-0 flex-1 flex-col">
+        <img
+          src={screenshot.src}
+          alt={screenshot.alt}
+          className="h-80 w-full object-contain md:h-[460px]"
+        />
+        <figcaption className="px-5 py-3 text-sm text-muted-foreground">
+          {screenshot.alt}
+        </figcaption>
+      </figure>
+      <div className="flex gap-2 overflow-x-auto p-4" aria-label="Project screenshots">
+        {screenshots.map((image, index) => (
+          <button
+            key={image.src}
+            type="button"
+            onClick={() => setSelected(index)}
+            aria-label={`View screenshot ${index + 1}: ${image.alt}`}
+            aria-pressed={selected === index}
+            className={cn(
+              "shrink-0 overflow-hidden rounded-sm border",
+              selected === index ? "border-powder" : "border-border",
+            )}
+          >
+            <img
+              src={image.src}
+              alt=""
+              loading="lazy"
+              className="h-12 w-20 object-cover object-top"
+            />
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 function ProjectModal() {
   const id = useUI((s) => s.projectId);
   const project = projects.find((p) => p.id === id);
@@ -371,14 +421,25 @@ function ProjectModal() {
         }
       }}
     >
-      <DialogContent className="max-w-6xl gap-0 overflow-hidden border-border bg-popover p-0 sm:rounded-lg">
+      <DialogContent className="max-h-[90svh] max-w-6xl gap-0 overflow-y-auto border-border bg-popover p-0 sm:rounded-lg">
         {project && (
           <div className="grid md:grid-cols-[1.6fr_1fr]">
-            <div className="relative aspect-[4/3] bg-background md:aspect-auto md:min-h-[540px]">
-              <ProjectPreview kind={project.preview} />
-              <span className="absolute right-4 top-4 rounded-sm bg-poppy px-2 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-poppy-foreground">
-                Interactive
-              </span>
+            <div
+              className={cn(
+                "relative bg-background md:min-h-[540px]",
+                !project.screenshots?.length && "aspect-[4/3] md:aspect-auto",
+              )}
+            >
+              {project.screenshots?.length ? (
+                <ProjectScreenshots key={project.id} screenshots={project.screenshots} />
+              ) : project.preview ? (
+                <>
+                  <ProjectPreview kind={project.preview} />
+                  <span className="absolute right-4 top-4 rounded-sm bg-poppy px-2 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-poppy-foreground">
+                    Interactive
+                  </span>
+                </>
+              ) : null}
             </div>
             <div className="flex flex-col border-t border-border p-7 md:border-l md:border-t-0">
               <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
