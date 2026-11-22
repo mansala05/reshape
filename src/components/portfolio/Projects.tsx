@@ -49,7 +49,10 @@ function Thumb({ project, live }: { project: Project; live: boolean }) {
         <img
           src={project.screenshots[0].src}
           alt={project.screenshots[0].alt}
-          className="absolute inset-0 h-full w-full object-cover object-top"
+          className={cn(
+            "absolute inset-0 h-full w-full",
+            project.coverFit === "contain" ? "object-contain" : "object-cover object-top",
+          )}
           loading="lazy"
         />
       ) : live && project.preview ? (

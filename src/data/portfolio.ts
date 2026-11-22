@@ -54,6 +54,7 @@ export type Project = {
   /** Which live demo runs on the card and in the modal. */
   preview?: PreviewKind;
   screenshots?: { src: string; alt: string }[];
+  coverFit?: "cover" | "contain";
   links: { label: string; href: string }[];
   /** Set for projects that reached a competition final; shows the poppy "Finalist" badge. Delete the line if not. */
   award?: { label: string; event: string };
@@ -142,6 +143,33 @@ export const projects: Project[] = [
       "Firebase Storage",
       "FCM",
       "react-native-maps",
+    ],
+    coverFit: "contain",
+    screenshots: [
+      {
+        src: "/projects/road-assist-lk/onboarding.png",
+        alt: "RoadAssistLK onboarding design mockup",
+      },
+      {
+        src: "/projects/road-assist-lk/sign-in.png",
+        alt: "RoadAssistLK sign-in design mockup",
+      },
+      {
+        src: "/projects/road-assist-lk/active-job.png",
+        alt: "RoadAssistLK mechanic active-job design mockup",
+      },
+      {
+        src: "/projects/road-assist-lk/mechanic-profile.png",
+        alt: "RoadAssistLK mechanic profile design mockup",
+      },
+      {
+        src: "/projects/road-assist-lk/tracking-wireframe.png",
+        alt: "RoadAssistLK driver live-tracking wireframe",
+      },
+      {
+        src: "/projects/road-assist-lk/role-selection-wireframe.png",
+        alt: "RoadAssistLK driver and garage role-selection wireframe",
+      },
     ],
     links: [
       {
