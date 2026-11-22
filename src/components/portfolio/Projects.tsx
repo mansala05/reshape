@@ -441,7 +441,13 @@ function ProjectModal() {
                     Interactive
                   </span>
                 </>
-              ) : null}
+              ) : (
+                <div className="grid-texture absolute inset-0 grid place-items-center">
+                  <span className="font-mono text-[7rem] font-semibold leading-none text-powder/10">
+                    {project.index}
+                  </span>
+                </div>
+              )}
             </div>
             <div className="flex flex-col border-t border-border p-7 md:border-l md:border-t-0">
               <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground">

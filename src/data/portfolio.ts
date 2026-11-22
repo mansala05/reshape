@@ -121,19 +121,45 @@ export const projects: Project[] = [
     },
   },
   {
-    id: "glsl-fluid",
+    id: "road-assist-lk",
     index: "02",
-    title: "Generative GLSL Fluid Simulation",
-    year: "2025",
-    role: "Shader Development",
-    summary: "Domain-warped noise fields that flow and swirl around the cursor.",
+    title: "RoadAssistLK",
+    year: "2026",
+    role: "UI / Frontend · Hello-World-Domain",
+    summary:
+      "A mobile app concept connecting drivers facing vehicle breakdowns with nearby mechanics.",
     description:
-      "A fragment shader built on layered fractal noise and domain warping, running on the GPU at native resolution. Placeholder copy — explain the technique and where it shipped.",
-    tags: ["GLSL", "WebGL", "Noise"],
-    preview: "fluid",
+      "Created with Hello-World-Domain for CodeSprint 11, organised by the IEEE Student Branch of IIT, Sri Lanka, during April–May 2026. We participated in the Envision Phase. I worked on early Figma designs and handed off component specifications, colours, fonts, spacing, and assets, then collaborated with three teammates on UI/frontend development. My work plan covered Splash, Onboarding, Login, Register, Profile, Request History, Notifications, FAQ / Help, and App Info screens. Planned app features included help requests, live location and maps, mechanic matching, tracking, ratings, chat, and notifications. The team stack included React Native and Expo, Node.js and Express, Firebase Auth, Firestore, Firebase Storage, Firebase Cloud Messaging, react-native-maps, and GPS / Google Maps integration.",
+    tags: [
+      "React Native",
+      "Expo",
+      "Figma",
+      "Node.js",
+      "Express",
+      "Firebase",
+      "Firestore",
+      "Firebase Auth",
+      "Firebase Storage",
+      "FCM",
+      "react-native-maps",
+    ],
     links: [
-      { label: "Live demo", href: "#" },
-      { label: "Write-up", href: "#" },
+      {
+        label: "GitHub",
+        href: "https://github.com/HelloWorld-Domination/road-assist-lk",
+      },
+      {
+        label: "Demo video",
+        href: "https://youtu.be/bcDtwb1ND4c",
+      },
+      {
+        label: "Figma · design file 1",
+        href: "https://www.figma.com/design/28qoT94kcrB79RY4fGQP50/Untitled?node-id=0-1",
+      },
+      {
+        label: "Figma · design file 2",
+        href: "https://www.figma.com/design/0BpJO35PmIt1d5T2vxNna0/project-1--Copy-?node-id=0-1",
+      },
     ],
   },
   {
