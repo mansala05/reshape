@@ -277,19 +277,33 @@ export const projects: Project[] = [
     ],
   },
   {
-    id: "chrome-configurator",
+    id: "waypoint-ml",
     index: "05",
-    title: "Liquid Chrome Product Configurator",
-    year: "2025",
-    role: "WebGL Engineering",
-    summary: "A real-time 3D configurator with mirror finishes and studio lighting.",
+    title: "Waypoint — AI/ML Models",
+    year: "2026",
+    role: "Demand Forecasting · Team Orbit",
+    summary:
+      "A team Datathon project forecasting ten weeks of total and chilled demand, alongside delivery predictions and constraint-based allocation.",
     description:
-      "Placeholder project — a browser configurator for a fashion accessory launch, with environment-mapped chrome, live material swaps and a 2 MB asset budget.",
-    tags: ["R3F", "PBR", "E-commerce"],
-    preview: "spatial",
+      "Built with Team Orbit for the Rootcode Tech Triathlon 2026 Datathon. I contributed to weekly demand preparation, feature engineering, forecasting model development, evaluation, and final prediction generation.",
+    tags: [
+      "Python",
+      "Pandas",
+      "NumPy",
+      "Scikit-learn",
+      "Huber Regression",
+      "Ridge Regression",
+      "Jupyter Notebook",
+    ],
     links: [
-      { label: "Live demo", href: "#" },
-      { label: "Case study", href: "#" },
+      {
+        label: "Project video",
+        href: "https://youtu.be/7Px1Pmnp5jM",
+      },
+      {
+        label: "Competition",
+        href: "https://tech-triathlon.rootcode.ai/",
+      },
     ],
   },
   {
