@@ -254,19 +254,25 @@ export const projects: Project[] = [
     },
   },
   {
-    id: "kinetic-type",
+    id: "waypoint-ops",
     index: "04",
-    title: "Kinetic Particle Typography",
-    year: "2024",
-    role: "Creative Coding",
-    summary: "Letterforms made of particles that scatter and reassemble.",
+    title: "WaypointOps — Parts 1 & 2",
+    year: "2026",
+    role: "Frontend & Backend Development · Team Orbit",
+    summary:
+      "A logistics and delivery management system for coordinating store orders, stock operations, and deliveries.",
     description:
-      "Text is sampled into thousands of particles with spring physics, so type reacts to the cursor like a physical material. Placeholder copy — swap in your own project.",
-    tags: ["Canvas 2D", "Particles", "Typography"],
-    preview: "kinetic",
+      "Built collaboratively with Team Orbit for the Rootcode Tech Triathlon 2026 Hackathon. I contributed to frontend UI design and development, implemented Stock Manager backend functionality, and helped integrate it with the application.",
+    tags: ["React", "Vite", "Tailwind CSS", "NestJS", "Prisma", "PostgreSQL", "Docker"],
     links: [
-      { label: "Live demo", href: "#" },
-      { label: "Source", href: "#" },
+      {
+        label: "GitHub",
+        href: "https://github.com/ashen0723/ORBIT_WaypointOps",
+      },
+      {
+        label: "Competition",
+        href: "https://tech-triathlon.rootcode.ai/",
+      },
     ],
   },
   {
