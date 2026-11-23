@@ -296,6 +296,7 @@ export const projects: Project[] = [
       "Jupyter Notebook",
     ],
     links: [
+      { label: "GitHub", href: "https://github.com/Vihandu-Nimsara/ORBIT_Datathon" },
       {
         label: "Project video",
         href: "https://youtu.be/7Px1Pmnp5jM",
