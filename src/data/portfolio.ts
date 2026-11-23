@@ -265,6 +265,7 @@ export const projects: Project[] = [
       "Built collaboratively with Team Orbit for the Rootcode Tech Triathlon 2026 Hackathon. I contributed to frontend UI design and development, implemented Stock Manager backend functionality, and helped integrate it with the application.",
     tags: ["React", "Vite", "Tailwind CSS", "NestJS", "Prisma", "PostgreSQL", "Docker"],
     links: [
+      { label: "Demo video", href: "https://youtu.be/w14kuQ48pxM" },
       {
         label: "GitHub",
         href: "https://github.com/ashen0723/ORBIT_WaypointOps",
