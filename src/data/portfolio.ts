@@ -307,55 +307,6 @@ export const projects: Project[] = [
       },
     ],
   },
-  {
-    id: "club-visuals",
-    index: "06",
-    title: "Club Visuals Live Rig",
-    year: "2024",
-    role: "Live Visuals · Performance",
-    summary: "Audio-reactive visuals played live, synced to the DJ booth.",
-    description:
-      "Placeholder project — a browser-based VJ rig that listens to the room, maps MIDI controllers to shader parameters and projects onto the club walls.",
-    tags: ["Web Audio", "MIDI", "Projection"],
-    preview: "audio",
-    links: [
-      { label: "Video", href: "#" },
-      { label: "Source", href: "#" },
-    ],
-    award: { label: "Finalist", event: "Placeholder Live Visuals Battle" },
-  },
-  {
-    id: "shader-garden",
-    index: "07",
-    title: "Shader Garden — Generative Florals",
-    year: "2024",
-    role: "Generative Art",
-    summary: "Petal fields grown entirely in a fragment shader.",
-    description:
-      "Placeholder project — a generative series where every frame is a new bloom, grown from noise and printed as a limited edition.",
-    tags: ["GLSL", "Generative", "Print"],
-    preview: "fluid",
-    links: [
-      { label: "Gallery", href: "#" },
-      { label: "Write-up", href: "#" },
-    ],
-  },
-  {
-    id: "gesture-type",
-    index: "08",
-    title: "Gestural Type Installation",
-    year: "2023",
-    role: "Installation · Creative Tech",
-    summary: "A gallery wall of letters that moves with the people in front of it.",
-    description:
-      "Placeholder project — a camera-tracked typographic installation for an exhibition opening, built in the browser and run on a 6 m LED wall.",
-    tags: ["Computer Vision", "Typography", "Installation"],
-    preview: "kinetic",
-    links: [
-      { label: "Video", href: "#" },
-      { label: "Press", href: "#" },
-    ],
-  },
 ];
 
 /* ------------------------------------------------------------------ */
