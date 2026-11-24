@@ -45,7 +45,14 @@ function Thumb({ project, live }: { project: Project; live: boolean }) {
   return (
     <div className="relative aspect-[16/10] overflow-hidden">
       <div className="absolute inset-0 border-b border-border bg-background" />
-      {project.screenshots?.[0] ? (
+      {project.cover ? (
+        <img
+          src={project.cover.src}
+          alt={project.cover.alt}
+          className="absolute inset-0 h-full w-full object-contain p-4"
+          loading="lazy"
+        />
+      ) : project.screenshots?.[0] ? (
         <img
           src={project.screenshots[0].src}
           alt={project.screenshots[0].alt}
@@ -68,7 +75,9 @@ function Thumb({ project, live }: { project: Project; live: boolean }) {
           </div>
         </div>
       )}
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent" />
+      {!project.cover && (
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent" />
+      )}
       {project.award && <FinalistBadge award={project.award} />}
     </div>
   );

@@ -55,6 +55,7 @@ export type Project = {
   preview?: PreviewKind;
   screenshots?: { src: string; alt: string; crop?: boolean }[];
   coverFit?: "cover" | "contain";
+  cover?: { src: string; alt: string };
   links: { label: string; href: string }[];
   /** Set for projects that reached a competition final; shows the poppy "Finalist" badge. Delete the line if not. */
   award?: { label: string; event: string };
@@ -63,6 +64,7 @@ export type Project = {
 export const projects: Project[] = [
   {
     id: "invoice-chaser",
+    cover: { src: "/projects/logos/invoice-chaser.png", alt: "InvoiceChaser logo" },
     index: "01",
     title: "InvoiceChaser",
     year: "2026",
@@ -123,6 +125,7 @@ export const projects: Project[] = [
   },
   {
     id: "road-assist-lk",
+    cover: { src: "/projects/logos/road-assist-lk.png", alt: "RoadAssistLK logo" },
     index: "02",
     title: "RoadAssistLK",
     year: "2026",
@@ -192,6 +195,7 @@ export const projects: Project[] = [
   },
   {
     id: "surgimap",
+    cover: { src: "/projects/logos/surgimap.png", alt: "SurgiMap logo" },
     index: "03",
     title: "SurgiMap",
     year: "2026",
@@ -255,6 +259,7 @@ export const projects: Project[] = [
   },
   {
     id: "waypoint-ops",
+    cover: { src: "/projects/logos/waypoint-ops.png", alt: "WaypointOps logo" },
     index: "04",
     title: "WaypointOps — Parts 1 & 2",
     year: "2026",
@@ -278,6 +283,7 @@ export const projects: Project[] = [
   },
   {
     id: "waypoint-ml",
+    cover: { src: "/projects/logos/waypoint-ops.png", alt: "Waypoint AI/ML logo" },
     index: "05",
     title: "Waypoint — AI/ML Models",
     year: "2026",
