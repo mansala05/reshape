@@ -301,6 +301,24 @@ export const projects: Project[] = [
     description:
       "Built collaboratively with Team Orbit for the Rootcode Tech Triathlon 2026 Hackathon. I contributed to frontend UI design and development, implemented Stock Manager backend functionality, and helped integrate it with the application.",
     tags: ["React", "Vite", "Tailwind CSS", "NestJS", "Prisma", "PostgreSQL", "Docker"],
+    screenshots: [
+      {
+        src: "/projects/waypoint-ops/dashboard.png",
+        alt: "Waypoint Store Manager dashboard with delivery analytics and order summaries",
+      },
+      {
+        src: "/projects/waypoint-ops/my-orders.png",
+        alt: "Waypoint orders list with delivery status and expected arrivals",
+      },
+      {
+        src: "/projects/waypoint-ops/order-history.png",
+        alt: "Waypoint order history with status and brand filters",
+      },
+      {
+        src: "/projects/waypoint-ops/profile-settings.png",
+        alt: "Waypoint Store Manager profile settings",
+      },
+    ],
     links: [
       { label: "Demo video", href: "https://youtu.be/w14kuQ48pxM" },
       {
