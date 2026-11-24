@@ -103,6 +103,18 @@ export const projects: Project[] = [
         src: "/projects/invoice-chaser/agent-run.png",
         alt: "Agent run summary showing invoices already handled in their current state",
       },
+      {
+        src: "/projects/invoice-chaser/neurox-group-photo.png",
+        alt: "NeuroX 1.0 event group photo",
+      },
+      {
+        src: "/projects/invoice-chaser/team-orbit-at-neurox.png",
+        alt: "Team ORBIT working together at NeuroX 1.0",
+      },
+      {
+        src: "/projects/invoice-chaser/top-15-announcement.png",
+        alt: "NeuroX 1.0 Top 15 qualification announcement listing Team ORBIT",
+      },
     ],
     links: [
       {
