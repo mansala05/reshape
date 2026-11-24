@@ -253,6 +253,22 @@ export const projects: Project[] = [
         alt: "SurgiMap guide to searching, checking stock, and contacting pharmacies",
         crop: true,
       },
+      {
+        src: "/projects/surgimap/hackelite-team-discussion.png",
+        alt: "Team discussion at HackElite 3.0",
+      },
+      {
+        src: "/projects/surgimap/hackelite-team-session.png",
+        alt: "Team members during a HackElite 3.0 session",
+      },
+      {
+        src: "/projects/surgimap/hackelite-group-photo.png",
+        alt: "HackElite 3.0 event group photo",
+      },
+      {
+        src: "/projects/surgimap/hackelite-presentation.png",
+        alt: "Presenting SurgiMap at HackElite 3.0",
+      },
     ],
     links: [
       {
