@@ -351,6 +351,20 @@ export const projects: Project[] = [
       "Ridge Regression",
       "Jupyter Notebook",
     ],
+    screenshots: [
+      {
+        src: "/projects/waypoint-ml/architecture.png",
+        alt: "Team Orbit Datathon architecture covering delivery predictions, demand forecasting, and allocation checks",
+      },
+      {
+        src: "/projects/waypoint-ml/data-preparation.png",
+        alt: "Datathon methodology: data integrity, label construction, and weekly demand preparation",
+      },
+      {
+        src: "/projects/waypoint-ml/forecasting-methodology.png",
+        alt: "Hybrid demand forecasting and saved inference methodology, allocation verification, and evidence limits",
+      },
+    ],
     links: [
       { label: "GitHub", href: "https://github.com/Vihandu-Nimsara/ORBIT_Datathon" },
       {
