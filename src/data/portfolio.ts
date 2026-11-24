@@ -269,6 +269,10 @@ export const projects: Project[] = [
         src: "/projects/surgimap/hackelite-presentation.png",
         alt: "Presenting SurgiMap at HackElite 3.0",
       },
+      {
+        src: "/projects/surgimap/hackelite-finalists.png",
+        alt: "HackElite 3.0 finalist announcement listing Team Shadow Stack",
+      },
     ],
     links: [
       {
