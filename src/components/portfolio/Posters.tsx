@@ -260,7 +260,7 @@ export function Posters() {
       <div className="mx-auto max-w-7xl px-5 md:px-8">
         <SectionHeading
           code={sectionCode("posters")}
-          kicker="Other Design"
+          kicker="Volunteering"
           title={
             <>
               Ideas that take shape{" "}

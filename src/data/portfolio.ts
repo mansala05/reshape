@@ -651,7 +651,7 @@ export const sections = [
   { id: "work", label: "Experiences", code: "02", keywords: "projects lab experiments work" },
   {
     id: "posters",
-    label: "Other Design",
+    label: "Volunteering",
     code: "03",
     keywords: "posters flyers events print design gallery",
   },
