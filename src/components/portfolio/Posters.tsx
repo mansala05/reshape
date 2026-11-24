@@ -268,8 +268,7 @@ export function Posters() {
             </>
           }
         >
-          A collection of visual ideas, from posters to experiments made just for the joy of
-          creating.
+          A look at the teams, communities, and initiatives I’ve contributed to.
         </SectionHeading>
       </div>
       <Filmstrip />
