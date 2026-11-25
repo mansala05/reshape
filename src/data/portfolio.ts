@@ -73,15 +73,7 @@ export const projects: Project[] = [
       "An AI receivables agent that reviews overdue invoices, uses customer context to choose a response, and routes sensitive decisions to a person for approval.",
     description:
       "Built with Team ORBIT for NeuroX 1.0. I worked on backend decision logging, audit trails, approvals, reply handling, and recovery flows, then used Codex to refine and test the demo workflows.",
-    tags: [
-      "TypeScript",
-      "Next.js",
-      "React",
-      "Supabase (PostgreSQL)",
-      "Google Gemini",
-      "Gmail API",
-      "Tailwind CSS",
-    ],
+    tags: ["TypeScript", "Next.js", "React", "Supabase (PostgreSQL)", "Gmail API", "Tailwind CSS"],
     screenshots: [
       {
         src: "/projects/invoice-chaser/dashboard.png",
@@ -426,7 +418,7 @@ export const stack: StackGroup[] = [
     code: "C",
     title: "Backend & APIs",
     blurb: "Application logic, API integration, and connected workflows.",
-    tools: ["Node.js", "NestJS", "REST APIs", "Gmail API", "Google Gemini"].map((name) => ({
+    tools: ["Node.js", "NestJS", "REST APIs", "Gmail API"].map((name) => ({
       name,
     })),
   },
