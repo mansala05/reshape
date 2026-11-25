@@ -75,7 +75,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Mansala Liyanage — Full-Stack Developer & Digital Designer" },
+      { title: "Mansala Liyanage Full-Stack Developer & Digital Designer" },
       {
         name: "description",
         content:
@@ -83,7 +83,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       {
         property: "og:title",
-        content: "Mansala Liyanage — Full-Stack Developer & Digital Designer",
+        content: "Mansala Liyanage Full-Stack Developer & Digital Designer",
       },
       {
         property: "og:description",
