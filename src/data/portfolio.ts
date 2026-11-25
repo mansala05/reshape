@@ -481,7 +481,8 @@ export const about = {
 /* Posters & flyers                                                    */
 /* ------------------------------------------------------------------ */
 
-export type PosterKind = "Festival" | "Club night" | "Exhibition" | "Concert" | "Conference";
+export type PosterKind =
+  "Volunteering" | "Festival" | "Club night" | "Exhibition" | "Concert" | "Conference";
 
 export type Poster = {
   id: string;
@@ -496,7 +497,7 @@ export type Poster = {
   date: string;
   year: string;
   /** Vertical proportions: 3:4 or 2:3. */
-  ratio: "3:4" | "2:3";
+  ratio: "3:4" | "2:3" | "4:5";
   format: string;
   lineup: string[];
   typography: { display: string; text: string; notes: string };
@@ -515,198 +516,42 @@ export type Poster = {
   };
   /** Put your flyer in /public (e.g. "/posters/bloom.jpg") or paste an image URL. */
   image?: string;
+  gallery?: { src: string; alt: string }[];
+  role?: string;
 };
 
 export const posters: Poster[] = [
   {
-    id: "bloom-state",
+    id: "genzpire-2026",
     index: "01",
-    headline: "BLOOM\nSTATE",
-    title: "Bloom State Festival",
-    kind: "Festival",
-    client: "Bloom State Collective",
-    venue: "Harbour Gardens",
-    city: "Lisbon",
-    date: "14 — 16 Aug",
+    headline: "GENZPIRE",
+    title: "GenZpire 2026",
+    kind: "Volunteering",
+    client: "CSSL GenZ Chapter — University of Colombo School of Computing (UCSC)",
+    role: "Design Lead",
+    venue: "W001, UCSC",
+    city: "Colombo",
+    date: "6 August",
     year: "2026",
-    ratio: "2:3",
-    format: "B1 · 700 × 1000 mm, risograph 2-color",
-    lineup: ["Placeholder DJ", "Second Artist", "Live Act Name", "Closing Set b2b"],
-    typography: {
-      display: "Geist SemiBold, 280 pt, −4% tracking",
-      text: "Geist Mono, 11/14 pt, uppercase",
-      notes: "Headline set tight enough to touch; lineup hangs from a single baseline.",
-    },
+    ratio: "4:5",
+    format: "Event graphics",
+    lineup: [],
+    typography: { display: "", text: "", notes: "" },
     description:
-      "Placeholder brief — a three-day open-air festival identity built around a stacked wordmark that bursts off the sheet. Replace with your own story.",
-    tags: ["Identity", "Risograph", "Wayfinding"],
-    art: { bg: "#e63946", ink: "#0c0d10", accent: "#eef2f6", face: "sans", layout: "stack" },
-  },
-  {
-    id: "afterglass",
-    index: "02",
-    headline: "After\nGlass",
-    title: "Afterglass — Club Night",
-    kind: "Club night",
-    client: "Afterglass Records",
-    venue: "Basement 9",
-    city: "Berlin",
-    date: "Sat 07 Mar · 23:00",
-    year: "2026",
-    ratio: "3:4",
-    format: "A2 · 420 × 594 mm, digital + wheatpaste",
-    lineup: ["Resident One", "Guest From Abroad", "Visuals by You"],
-    typography: {
-      display: "Instrument Serif Italic, 240 pt",
-      text: "Geist Mono, 9/12 pt",
-      notes: "One oversized italic ligature as the hero; info set like a ticket stub.",
-    },
-    description:
-      "Placeholder brief — monthly club series where each edition shifts the orbit color. Replace with the night, the crowd and what the poster did.",
-    tags: ["Club", "Series", "Motion poster"],
-    art: { bg: "#0c0d10", ink: "#a4c8e1", accent: "#ff3344", face: "serif", layout: "orbit" },
-  },
-  {
-    id: "signal-noise",
-    index: "03",
-    headline: "SIGNAL\n/NOISE",
-    title: "Signal / Noise — Media Art Exhibition",
-    kind: "Exhibition",
-    client: "Placeholder Kunsthalle",
-    venue: "Hall B, Placeholder Kunsthalle",
-    city: "Rotterdam",
-    date: "02 Oct — 18 Jan",
-    year: "2025",
-    ratio: "2:3",
-    format: "A1 · 594 × 841 mm, offset 4-color",
-    lineup: ["12 artists", "4 installations", "1 night program"],
-    typography: {
-      display: "Geist Mono Bold, 190 pt",
-      text: "Geist, 10/13 pt",
-      notes: "Strict 6-column grid; the index number is the image.",
-    },
-    description:
-      "Placeholder brief — exhibition campaign for generative and audio-visual work. Grid-first system scaled from posters to tram screens.",
-    tags: ["Exhibition", "Grid system", "Campaign"],
-    art: { bg: "#a4c8e1", ink: "#0c0d10", accent: "#e63946", face: "mono", layout: "grid" },
-  },
-  {
-    id: "velvet-voltage",
-    index: "04",
-    headline: "Velvet\nVoltage",
-    title: "Velvet Voltage — Live",
-    kind: "Concert",
-    client: "Placeholder Artist Management",
-    venue: "The Paradiso Room",
-    city: "Amsterdam",
-    date: "Fri 22 May · Doors 20:00",
-    year: "2025",
-    ratio: "3:4",
-    format: "50 × 70 cm, screenprint, 2 spot colors",
-    lineup: ["Velvet Voltage", "Support: Opening Act"],
-    typography: {
-      display: "Instrument Serif, 210 pt, roman + italic mix",
-      text: "Geist Mono, 10/12 pt",
-      notes: "Split field: the poppy half carries the name, the dark half carries the facts.",
-    },
-    description:
-      "Placeholder brief — tour poster for a single headline show, printed in a numbered run of 150.",
-    tags: ["Gig poster", "Screenprint", "Limited run"],
-    art: { bg: "#efe9e1", ink: "#0c0d10", accent: "#e63946", face: "serif", layout: "split" },
-  },
-  {
-    id: "render-conf",
-    index: "05",
-    headline: "RENDER\nCONF",
-    title: "Render Conf — Creative Tech Summit",
-    kind: "Conference",
-    client: "Render Conf",
-    venue: "Placeholder Convention Centre",
-    city: "London",
-    date: "09 — 10 Jun",
-    year: "2025",
-    ratio: "2:3",
-    format: "A2 posters + 6 m stage backdrop",
-    lineup: ["40 speakers", "2 stages", "1 shader jam"],
-    typography: {
-      display: "Geist Mono SemiBold, 220 pt",
-      text: "Geist, 12/16 pt",
-      notes: "Monospaced wordmark that doubles as the stage countdown.",
-    },
-    description: "Placeholder brief — summit identity spanning print, stage and badges.",
-    tags: ["Conference", "Stage design", "Badges"],
-    art: { bg: "#14161b", ink: "#eef2f6", accent: "#ff3344", face: "mono", layout: "stack" },
-  },
-  {
-    id: "petal-club",
-    index: "06",
-    headline: "Petal\nClub",
-    title: "Petal Club — Spring Opening",
-    kind: "Club night",
-    client: "Petal Club",
-    venue: "Rooftop 41",
-    city: "Barcelona",
-    date: "Sat 18 Apr · Sunset",
-    year: "2024",
-    ratio: "3:4",
-    format: "Instagram 4:5 + A3 flyer",
-    lineup: ["Sunset Selector", "Peak Time Guest", "Closing Resident"],
-    typography: {
-      display: "Instrument Serif Italic, 260 pt",
-      text: "Geist, 10/13 pt",
-      notes: "A single circle as the sun; type wraps around it like petals.",
-    },
-    description:
-      "Placeholder brief — rooftop season opener, one poster family for print and social.",
-    tags: ["Club", "Social", "Season launch"],
-    art: { bg: "#ff3344", ink: "#efe9e1", accent: "#0c0d10", face: "serif", layout: "orbit" },
-  },
-  {
-    id: "soft-machines",
-    index: "07",
-    headline: "SOFT\nMACHINES",
-    title: "Soft Machines — Group Show",
-    kind: "Exhibition",
-    client: "Placeholder Gallery",
-    venue: "Placeholder Gallery, Ground floor",
-    city: "Paris",
-    date: "11 Nov — 20 Dec",
-    year: "2024",
-    ratio: "2:3",
-    format: "A1 · 594 × 841 mm, offset + spot silver",
-    lineup: ["6 artists", "Robotics", "Textiles", "Light"],
-    typography: {
-      display: "Geist SemiBold, 200 pt, −3% tracking",
-      text: "Geist Mono, 9/12 pt",
-      notes: "Swiss grid with one silver spot color standing in for chrome.",
-    },
-    description:
-      "Placeholder brief — group show about tenderness and machines. Replace with your own.",
-    tags: ["Exhibition", "Spot silver", "Catalogue"],
-    art: { bg: "#efe9e1", ink: "#0c0d10", accent: "#5f8fb3", face: "sans", layout: "grid" },
-  },
-  {
-    id: "night-garden",
-    index: "08",
-    headline: "Night\nGarden",
-    title: "Night Garden — Light Festival",
-    kind: "Festival",
-    client: "City Placeholder Cultural Office",
-    venue: "Botanical Garden",
-    city: "Copenhagen",
-    date: "06 — 15 Feb",
-    year: "2024",
-    ratio: "2:3",
-    format: "Bus shelters 1185 × 1750 mm",
-    lineup: ["18 light works", "Evening walks", "Family Sundays"],
-    typography: {
-      display: "Instrument Serif, 230 pt",
-      text: "Geist Mono, 11/14 pt",
-      notes: "Split layout reads from a moving bus; date set at the eye line.",
-    },
-    description: "Placeholder brief — citywide winter light festival campaign.",
-    tags: ["Festival", "Out of home", "Campaign"],
-    art: { bg: "#0c0d10", ink: "#eef2f6", accent: "#a4c8e1", face: "serif", layout: "split" },
+      "As Design Lead, I independently handled all graphic design work for GenZpire 2026. Organized by the CSSL GenZ Chapter at UCSC, the event introduced students to CSSL, encouraged networking with seniors, and opened opportunities for learning and professional growth.",
+    tags: ["Volunteering", "Graphic Design", "Design Lead"],
+    art: { bg: "#101114", ink: "#f0f2f5", accent: "#a5c9de", face: "sans", layout: "stack" },
+    image: "/volunteering/genzpire-2026/happening-today.jpg",
+    gallery: [
+      {
+        src: "/volunteering/genzpire-2026/happening-today.jpg",
+        alt: "GenZpire 2026 event-day poster for 6 August at UCSC",
+      },
+      {
+        src: "/volunteering/genzpire-2026/coming-soon.jpg",
+        alt: "GenZpire 2026 coming-soon announcement poster",
+      },
+    ],
   },
 ];
 
@@ -723,7 +568,7 @@ export const sections = [
     id: "posters",
     label: "Volunteering",
     code: "03",
-    keywords: "posters flyers events print design gallery",
+    keywords: "volunteering community CSSL GenZpire design lead",
   },
   {
     id: "craft",

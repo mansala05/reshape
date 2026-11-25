@@ -1,6 +1,6 @@
 import useEmblaCarousel from "embla-carousel-react";
 import { ArrowLeft, ArrowRight, Maximize2 } from "lucide-react";
-import { useCallback, useEffect, useMemo, useRef } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 import { Dialog, DialogContent, DialogDescription, DialogTitle } from "@/components/ui/dialog";
 import { posters, sectionCode, type Poster } from "@/data/portfolio";
@@ -10,7 +10,7 @@ import { cn } from "@/lib/utils";
 import { PosterArt } from "./PosterArt";
 import { SectionHeading } from "./SectionHeading";
 
-const aspect = (p: Poster) => (p.ratio === "2:3" ? "2 / 3" : "3 / 4");
+const aspect = (p: Poster) => (p.ratio === "2:3" ? "2 / 3" : p.ratio === "4:5" ? "4 / 5" : "3 / 4");
 
 function openPoster(id: string) {
   playSound("open");
@@ -77,7 +77,7 @@ function Filmstrip() {
             <button
               type="button"
               onClick={prev}
-              aria-label="Previous flyers"
+              aria-label="Previous experiences"
               className="grid h-10 w-10 place-items-center rounded-full border border-border transition hover:border-poppy hover:bg-poppy hover:text-poppy-foreground"
             >
               <ArrowLeft className="h-4 w-4" />
@@ -85,7 +85,7 @@ function Filmstrip() {
             <button
               type="button"
               onClick={next}
-              aria-label="Next flyers"
+              aria-label="Next experiences"
               className="grid h-10 w-10 place-items-center rounded-full border border-border transition hover:border-poppy hover:bg-poppy hover:text-poppy-foreground"
             >
               <ArrowRight className="h-4 w-4" />
@@ -101,7 +101,7 @@ function Filmstrip() {
           className="cursor-grab overflow-hidden py-6 active:cursor-grabbing"
           role="region"
           aria-roledescription="carousel"
-          aria-label="Event posters and flyers"
+          aria-label="Volunteering experiences"
         >
           <div className="flex touch-pan-y items-end">
             <div aria-hidden className="w-[max(1.25rem,calc((100vw-80rem)/2+2rem))] shrink-0" />
@@ -161,7 +161,9 @@ function Filmstrip() {
 }
 
 function PosterLightbox() {
+  const [imageIndex, setImageIndex] = useState(0);
   const id = useUI((s) => s.posterId);
+  useEffect(() => setImageIndex(0), [id]);
   const i = posters.findIndex((p) => p.id === id);
   const poster = i >= 0 ? posters[i] : undefined;
 
@@ -198,7 +200,13 @@ function PosterLightbox() {
                 className="w-full max-w-[420px] overflow-hidden rounded-[3px] shadow-[var(--shadow-print)] ring-1 ring-border animate-in fade-in zoom-in-95 duration-300 reduced:zoom-in-100"
                 style={{ aspectRatio: aspect(poster) }}
               >
-                <PosterArt poster={poster} />
+                <PosterArt
+                  poster={
+                    poster.gallery?.[imageIndex]
+                      ? { ...poster, image: poster.gallery[imageIndex].src }
+                      : poster
+                  }
+                />
               </div>
             </div>
 
@@ -220,6 +228,11 @@ function PosterLightbox() {
 
               <dl className="mt-6 border-t border-border pt-5">
                 <dt className="font-mono text-[10px] uppercase tracking-[0.18em] text-powder/60">
+                  Role & organization
+                </dt>
+                <dd className="mt-1 text-sm text-foreground">{poster.role}</dd>
+                <dd className="mb-5 mt-1 text-sm text-muted-foreground">{poster.client}</dd>
+                <dt className="font-mono text-[10px] uppercase tracking-[0.18em] text-powder/60">
                   Event timeline
                 </dt>
                 <dd className="mt-1 font-serif text-lg italic text-powder">
@@ -227,6 +240,29 @@ function PosterLightbox() {
                 </dd>
               </dl>
 
+              {poster.gallery && (
+                <div className="mt-6 flex gap-3" aria-label="Event graphics">
+                  {poster.gallery.map((image, index) => (
+                    <button
+                      key={image.src}
+                      type="button"
+                      onClick={() => setImageIndex(index)}
+                      aria-label={image.alt}
+                      aria-pressed={index === imageIndex}
+                      className={cn(
+                        "h-24 w-20 overflow-hidden rounded border",
+                        index === imageIndex ? "border-poppy" : "border-border",
+                      )}
+                    >
+                      <img
+                        src={image.src}
+                        alt={image.alt}
+                        className="h-full w-full object-contain"
+                      />
+                    </button>
+                  ))}
+                </div>
+              )}
               <div className="mt-auto flex items-center justify-between gap-3 pt-8">
                 <button
                   type="button"
@@ -263,8 +299,8 @@ export function Posters() {
           kicker="Volunteering"
           title={
             <>
-              Ideas that take shape{" "}
-              <span className="font-serif font-normal italic text-poppy-bright">beyond tech</span>.
+              Contributing to{" "}
+              <span className="font-serif font-normal italic text-poppy-bright">communities</span>.
             </>
           }
         >
