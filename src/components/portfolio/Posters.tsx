@@ -10,7 +10,8 @@ import { cn } from "@/lib/utils";
 import { PosterArt } from "./PosterArt";
 import { SectionHeading } from "./SectionHeading";
 
-const aspect = (p: Poster) => (p.ratio === "2:3" ? "2 / 3" : p.ratio === "4:5" ? "4 / 5" : "3 / 4");
+const aspect = (p: Poster) =>
+  p.ratio === "1:1" ? "1 / 1" : p.ratio === "2:3" ? "2 / 3" : p.ratio === "4:5" ? "4 / 5" : "3 / 4";
 
 function openPoster(id: string) {
   playSound("open");
@@ -236,7 +237,7 @@ function PosterLightbox() {
                   Event timeline
                 </dt>
                 <dd className="mt-1 font-serif text-lg italic text-powder">
-                  {poster.date} · {poster.year}
+                  {poster.date === poster.year ? poster.year : `${poster.date} · ${poster.year}`}
                 </dd>
               </dl>
 

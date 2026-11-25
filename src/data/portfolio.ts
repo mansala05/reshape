@@ -497,7 +497,7 @@ export type Poster = {
   date: string;
   year: string;
   /** Vertical proportions: 3:4 or 2:3. */
-  ratio: "3:4" | "2:3" | "4:5";
+  ratio: "3:4" | "2:3" | "4:5" | "1:1";
   format: string;
   lineup: string[];
   typography: { display: string; text: string; notes: string };
@@ -580,6 +580,28 @@ export const posters: Poster[] = [
         alt: "Group photograph with fellow Pahasara Media volunteers at Padura 2026",
       },
     ],
+  },
+  {
+    id: "ieeextreme-20",
+    index: "03",
+    headline: "IEEEXTREME 20.0",
+    title: "IEEEXtreme 20.0 at UCSC",
+    kind: "Volunteering",
+    client: "IEEE Student Branch — University of Colombo School of Computing (UCSC)",
+    role: "Design Team Member",
+    venue: "UCSC",
+    city: "Colombo",
+    date: "2026",
+    year: "2026",
+    ratio: "1:1",
+    format: "Promotional graphic design",
+    lineup: [],
+    typography: { display: "", text: "", notes: "" },
+    description:
+      "Contributed to promotional graphic design as a Design Team Member for IEEEXtreme 20.0 at UCSC, organized by the IEEE Student Branch. The event encouraged competitive programming, problem-solving, and collaboration among university students.",
+    tags: ["Volunteering", "Graphic Design", "IEEE"],
+    art: { bg: "#101114", ink: "#f0f2f5", accent: "#a5c9de", face: "sans", layout: "stack" },
+    image: "/volunteering/ieeextreme-20/entries-locked.png",
   },
 ];
 
