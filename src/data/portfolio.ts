@@ -396,8 +396,15 @@ export type StackGroup = {
 
 export const stack: StackGroup[] = [
   {
-    id: "frontend",
+    id: "languages",
     code: "A",
+    title: "Languages & Web Foundations",
+    blurb: "The foundations I use for programming and building for the web.",
+    tools: ["HTML", "CSS", "JavaScript", "Python", "C", "C++"].map((name) => ({ name })),
+  },
+  {
+    id: "frontend",
+    code: "B",
     title: "Frontend & UI",
     blurb: "Responsive web and mobile interfaces, from Figma to implementation.",
     tools: [
@@ -416,7 +423,7 @@ export const stack: StackGroup[] = [
   },
   {
     id: "backend",
-    code: "B",
+    code: "C",
     title: "Backend & APIs",
     blurb: "Application logic, API integration, and connected workflows.",
     tools: ["Node.js", "NestJS", "REST APIs", "Gmail API", "Google Gemini"].map((name) => ({
@@ -425,7 +432,7 @@ export const stack: StackGroup[] = [
   },
   {
     id: "databases",
-    code: "C",
+    code: "D",
     title: "Databases & Tools",
     blurb: "Data storage and development tools used across my team projects.",
     tools: [
@@ -441,11 +448,10 @@ export const stack: StackGroup[] = [
   },
   {
     id: "data-ml",
-    code: "D",
+    code: "E",
     title: "Data & Machine Learning",
     blurb: "Data preparation, feature engineering, and demand forecasting.",
     tools: [
-      "Python",
       "Pandas",
       "NumPy",
       "Scikit-learn",
