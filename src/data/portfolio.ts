@@ -597,7 +597,7 @@ export const posters: Poster[] = [
     id: "ieeextreme-20",
     index: "04",
     headline: "IEEEXTREME 20.0",
-    title: "IEEEXtreme 20.0 at UCSC",
+    title: "IEEEXtreme 20.0",
     kind: "Volunteering",
     client: "IEEE Student Branch — University of Colombo School of Computing (UCSC)",
     role: "Design Team Member",
