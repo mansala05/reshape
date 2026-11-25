@@ -399,19 +399,12 @@ export const stack: StackGroup[] = [
     code: "B",
     title: "Frontend & UI",
     blurb: "Responsive web and mobile interfaces, from Figma to implementation.",
-    tools: [
-      "TypeScript",
-      "React",
-      "Next.js",
-      "React Native",
-      "Expo",
-      "Tailwind CSS",
-      "Vite",
-      "Figma",
-    ].map((name) => ({
-      name,
-      daily: ["TypeScript", "React", "Tailwind CSS", "Vite"].includes(name),
-    })),
+    tools: ["TypeScript", "React", "Next.js", "React Native", "Expo", "Tailwind CSS", "Vite"].map(
+      (name) => ({
+        name,
+        daily: ["TypeScript", "React", "Tailwind CSS", "Vite"].includes(name),
+      }),
+    ),
   },
   {
     id: "backend",
@@ -450,6 +443,21 @@ export const stack: StackGroup[] = [
       "Huber Regression",
       "Ridge Regression",
       "Jupyter Notebook",
+    ].map((name) => ({ name })),
+  },
+  {
+    id: "design-media",
+    code: "F",
+    title: "Design & Media",
+    blurb:
+      "Interface design, event graphics, and visual storytelling through photography and video.",
+    tools: [
+      "Figma",
+      "UI/UX Design",
+      "Wireframing",
+      "Graphic Design",
+      "Photography",
+      "Videography",
     ].map((name) => ({ name })),
   },
 ];
