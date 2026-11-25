@@ -547,10 +547,6 @@ export const posters: Poster[] = [
         src: "/volunteering/genzpire-2026/happening-today.jpg",
         alt: "GenZpire 2026 event-day poster for 6 August at UCSC",
       },
-      {
-        src: "/volunteering/genzpire-2026/coming-soon.jpg",
-        alt: "GenZpire 2026 coming-soon announcement poster",
-      },
     ],
   },
 ];
