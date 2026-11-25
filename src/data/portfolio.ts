@@ -549,6 +549,38 @@ export const posters: Poster[] = [
       },
     ],
   },
+  {
+    id: "pahasara-media-2026",
+    index: "02",
+    headline: "REID HANDAWA & PADURA",
+    title: "Reid Handawa & Padura",
+    kind: "Volunteering",
+    client: "Pahasara Media — University of Colombo School of Computing (UCSC)",
+    role: "Photographer & Videographer",
+    venue: "UCSC",
+    city: "Colombo",
+    date: "Reid Handawa ’25: 30 January · Padura",
+    year: "2026",
+    ratio: "2:3",
+    format: "Event photography & videography",
+    lineup: [],
+    typography: { display: "", text: "", notes: "" },
+    description:
+      "Volunteered with Pahasara Media at UCSC, contributing photography and videography for Reid Handawa ’25, held on 30 January 2026, and Padura 2026. The gallery includes a behind-the-scenes moment during Reid Handawa coverage and a group photograph with fellow Padura volunteers.",
+    tags: ["Volunteering", "Photography", "Videography"],
+    art: { bg: "#101114", ink: "#f0f2f5", accent: "#a5c9de", face: "sans", layout: "stack" },
+    image: "/volunteering/pahasara-media/reid-handawa-coverage.png",
+    gallery: [
+      {
+        src: "/volunteering/pahasara-media/reid-handawa-coverage.png",
+        alt: "Behind the scenes during Reid Handawa ’25 event coverage on 30 January 2026",
+      },
+      {
+        src: "/volunteering/pahasara-media/padura-volunteers.png",
+        alt: "Group photograph with fellow Pahasara Media volunteers at Padura 2026",
+      },
+    ],
+  },
 ];
 
 export const sections = [

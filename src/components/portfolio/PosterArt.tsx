@@ -13,7 +13,7 @@ export function PosterArt({ poster, className }: { poster: Poster; className?: s
         src={poster.image}
         alt={`${poster.title} poster`}
         draggable={false}
-        className={cn("h-full w-full object-cover", className)}
+        className={cn("h-full w-full object-contain", className)}
       />
     );
   }
