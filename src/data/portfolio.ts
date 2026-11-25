@@ -386,13 +386,42 @@ export type StackGroup = {
   tools: StackTool[];
 };
 
+const dailyDriverSkills = new Set([
+  "HTML",
+  "CSS",
+  "JavaScript",
+  "Python",
+  "C",
+  "C++",
+  "TypeScript",
+  "React",
+  "Tailwind CSS",
+  "Vite",
+  "Node.js",
+  "REST APIs",
+  "PostgreSQL",
+  "Supabase",
+  "Docker",
+  "Git",
+  "GitHub",
+  "NumPy",
+  "Figma",
+  "Wireframing",
+  "Graphic Design",
+  "Photography",
+  "Videography",
+]);
+
 export const stack: StackGroup[] = [
   {
     id: "languages",
     code: "A",
     title: "Languages & Web Foundations",
     blurb: "The foundations I use for programming and building for the web.",
-    tools: ["HTML", "CSS", "JavaScript", "Python", "C", "C++"].map((name) => ({ name })),
+    tools: ["HTML", "CSS", "JavaScript", "Python", "C", "C++"].map((name) => ({
+      name,
+      daily: dailyDriverSkills.has(name),
+    })),
   },
   {
     id: "frontend",
@@ -402,7 +431,7 @@ export const stack: StackGroup[] = [
     tools: ["TypeScript", "React", "Next.js", "React Native", "Expo", "Tailwind CSS", "Vite"].map(
       (name) => ({
         name,
-        daily: ["TypeScript", "React", "Tailwind CSS", "Vite"].includes(name),
+        daily: dailyDriverSkills.has(name),
       }),
     ),
   },
@@ -411,8 +440,9 @@ export const stack: StackGroup[] = [
     code: "C",
     title: "Backend & APIs",
     blurb: "Application logic, API integration, and connected workflows.",
-    tools: ["Node.js", "NestJS", "REST APIs", "Gmail API"].map((name) => ({
+    tools: ["Node.js", "NestJS", "REST APIs"].map((name) => ({
       name,
+      daily: dailyDriverSkills.has(name),
     })),
   },
   {
@@ -429,7 +459,7 @@ export const stack: StackGroup[] = [
       "Docker",
       "Git",
       "GitHub",
-    ].map((name) => ({ name })),
+    ].map((name) => ({ name, daily: dailyDriverSkills.has(name) })),
   },
   {
     id: "data-ml",
@@ -443,7 +473,7 @@ export const stack: StackGroup[] = [
       "Huber Regression",
       "Ridge Regression",
       "Jupyter Notebook",
-    ].map((name) => ({ name })),
+    ].map((name) => ({ name, daily: dailyDriverSkills.has(name) })),
   },
   {
     id: "design-media",
@@ -451,14 +481,10 @@ export const stack: StackGroup[] = [
     title: "Design & Media",
     blurb:
       "Interface design, event graphics, and visual storytelling through photography and video.",
-    tools: [
-      "Figma",
-      "UI/UX Design",
-      "Wireframing",
-      "Graphic Design",
-      "Photography",
-      "Videography",
-    ].map((name) => ({ name })),
+    tools: ["Figma", "Wireframing", "Graphic Design", "Photography", "Videography"].map((name) => ({
+      name,
+      daily: dailyDriverSkills.has(name),
+    })),
   },
 ];
 
