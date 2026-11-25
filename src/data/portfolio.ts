@@ -409,7 +409,10 @@ export const stack: StackGroup[] = [
       "Tailwind CSS",
       "Vite",
       "Figma",
-    ].map((name) => ({ name })),
+    ].map((name) => ({
+      name,
+      daily: ["TypeScript", "React", "Tailwind CSS", "Vite"].includes(name),
+    })),
   },
   {
     id: "backend",

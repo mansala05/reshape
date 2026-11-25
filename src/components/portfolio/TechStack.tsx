@@ -1,4 +1,5 @@
 import { sectionCode, stack } from "@/data/portfolio";
+import { cn } from "@/lib/utils";
 import { SectionHeading } from "./SectionHeading";
 
 export function TechStack() {
@@ -32,14 +33,33 @@ export function TechStack() {
                     key={tool.name}
                     className="inline-flex items-center gap-2 rounded-full border border-powder/25 bg-surface/70 px-3.5 py-1.5 text-sm text-foreground transition duration-300 hover:border-powder/60 hover:glow-powder"
                   >
-                    <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-poppy-bright" />
+                    <span
+                      aria-hidden
+                      className={cn(
+                        "h-1.5 w-1.5 rounded-full",
+                        tool.daily
+                          ? "bg-poppy-bright shadow-[0_0_8px_var(--poppy-bright)]"
+                          : "bg-poppy/40",
+                      )}
+                    />
                     {tool.name}
+                    {tool.daily && <span className="sr-only">(daily driver)</span>}
                   </li>
                 ))}
               </ul>
             </div>
           ))}
         </div>
+
+        <p className="mt-5 flex items-center gap-5 font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
+          <span className="inline-flex items-center gap-2">
+            <span className="h-1.5 w-1.5 rounded-full bg-poppy-bright shadow-[0_0_8px_var(--poppy-bright)]" />{" "}
+            Daily driver
+          </span>
+          <span className="inline-flex items-center gap-2">
+            <span className="h-1.5 w-1.5 rounded-full bg-poppy/40" /> In rotation
+          </span>
+        </p>
       </div>
     </section>
   );
