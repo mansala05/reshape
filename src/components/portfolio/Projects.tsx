@@ -483,9 +483,24 @@ function ProjectModal() {
                   {project.award.event}
                 </p>
               )}
-              <DialogDescription className="mt-5 text-sm leading-relaxed text-muted-foreground">
+              <h3 className="mt-5 font-mono text-[11px] uppercase tracking-[0.16em] text-powder">
+                My contribution
+              </h3>
+              <DialogDescription className="mt-2 text-sm leading-relaxed text-muted-foreground">
                 {project.description}
               </DialogDescription>
+              <dl className="mt-5 space-y-4 border-t border-border pt-5">
+                {project.evidence.map((item) => (
+                  <div key={item.label}>
+                    <dt className="font-mono text-[11px] uppercase tracking-[0.16em] text-powder">
+                      {item.label}
+                    </dt>
+                    <dd className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                      {item.text}
+                    </dd>
+                  </div>
+                ))}
+              </dl>
               <ul className="mt-6 flex flex-wrap gap-2">
                 {project.tags.map((t) => (
                   <li

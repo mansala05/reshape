@@ -51,6 +51,7 @@ export type Project = {
   role: string;
   summary: string;
   description: string;
+  evidence: { label: string; text: string }[];
   tags: string[];
   /** Which live demo runs on the card and in the modal. */
   preview?: PreviewKind;
@@ -73,7 +74,17 @@ export const projects: Project[] = [
     summary:
       "An AI receivables agent that reviews overdue invoices, uses customer context to choose a response, and routes sensitive decisions to a person for approval.",
     description:
-      "Built with Team ORBIT for NeuroX 1.0. I worked on backend decision logging, audit trails, approvals, reply handling, and recovery flows, then used Codex to refine and test the demo workflows.",
+      "Built with Team ORBIT for NeuroX 1.0. My contribution covered backend decision logging, audit trails, approval handling, replies, and recovery flows. I later used Codex to refine and test the demo workflows.",
+    evidence: [
+      {
+        label: "Workflow",
+        text: "Sensitive invoice decisions go through human review. The approval-queue screenshot shows the agent’s reasoning alongside approve, edit, and override actions.",
+      },
+      {
+        label: "Result & evidence",
+        text: "Team ORBIT qualified among the Top 15. The gallery includes the qualification announcement, decision history, and executed-action screens from the demo.",
+      },
+    ],
     tags: ["TypeScript", "Next.js", "React", "Supabase (PostgreSQL)", "Gmail API", "Tailwind CSS"],
     screenshots: [
       {
@@ -139,6 +150,16 @@ export const projects: Project[] = [
       "A mobile app concept connecting drivers facing vehicle breakdowns with nearby mechanics.",
     description:
       "A mobile app concept created with Hello-World-Domain for CodeSprint 11. I worked on the early Figma designs, handed off UI specifications, and collaborated with three teammates on the frontend.",
+    evidence: [
+      {
+        label: "Design work",
+        text: "The design explores the driver and mechanic journeys, including role selection, live tracking, an active job, and a mechanic profile.",
+      },
+      {
+        label: "Evidence & scope",
+        text: "The gallery contains design mockups and wireframes, with Figma files linked for closer inspection. This was a team competition concept for CodeSprint 11.",
+      },
+    ],
     tags: [
       "React Native",
       "Expo",
@@ -208,7 +229,17 @@ export const projects: Project[] = [
     summary:
       "A healthcare web app prototype that helps patients find nearby pharmacies with urgently needed surgical kits using simulated inventory sync.",
     description:
-      "Built with the four-member Team Shadow Stack for HackElite 3.0. I led UI/UX and frontend development, built search and stock availability interfaces, integrated maps, contact actions and APIs, improved responsiveness, and presented the project.",
+      "Built with the four-member Team Shadow Stack for HackElite 3.0. I led UI/UX and frontend development for a surgical-kit pharmacy finder. I built search and stock-availability interfaces, integrated maps, contact actions and APIs, improved responsiveness, and presented the prototype.",
+    evidence: [
+      {
+        label: "Workflow",
+        text: "Search results bring stock status, distance, contact actions, and directions together. The map view also shows a call-to-verify message when inventory sync is delayed.",
+      },
+      {
+        label: "Result & scope",
+        text: "Team Shadow Stack reached the HackElite 3.0 Top 12. The gallery includes prototype screens and the finalist announcement. Inventory synchronization was simulated.",
+      },
+    ],
     tags: [
       "React",
       "TypeScript",
@@ -293,6 +324,16 @@ export const projects: Project[] = [
       "A logistics and delivery management system for coordinating store orders, stock operations, and deliveries.",
     description:
       "Built collaboratively with Team Orbit for the Rootcode Tech Triathlon 2026 Hackathon. I contributed to frontend UI design and development, implemented Stock Manager backend functionality, and helped integrate it with the application.",
+    evidence: [
+      {
+        label: "My scope",
+        text: "Part 1 covered frontend UI work; Part 2 covered Stock Manager backend operations and integration. Both parts belong to the same team-built logistics application.",
+      },
+      {
+        label: "Evidence & context",
+        text: "The gallery shows the Store Manager dashboard, orders, order-history filters, and profile settings. The repository and demo video accompany this Hackathon entry; the team participated in the competition.",
+      },
+    ],
     tags: ["React", "Vite", "Tailwind CSS", "NestJS", "Prisma", "PostgreSQL", "Docker"],
     screenshots: [
       {
@@ -334,7 +375,17 @@ export const projects: Project[] = [
     summary:
       "A team Datathon project forecasting ten weeks of total and chilled demand, alongside delivery predictions and constraint-based allocation.",
     description:
-      "Built with Team Orbit for the Rootcode Tech Triathlon 2026 Datathon. I contributed to weekly demand preparation, feature engineering, forecasting model development, evaluation, and final prediction generation.",
+      "Built with Team Orbit for the Rootcode Tech Triathlon 2026 Datathon. I contributed to weekly demand preparation, feature engineering, model comparison, evaluation, and final prediction generation for ten-week demand forecasts. My focus was Task 2A; teammates handled delivery service-time and lateness models.",
+    evidence: [
+      {
+        label: "Forecasting approach",
+        text: "Weekly demand preparation produced 702 aggregated records across 117 historical weeks. The hybrid forecast uses different approaches for different depot-brand combinations and was evaluated with rolling-origin backtesting.",
+      },
+      {
+        label: "Output & scope",
+        text: "I contributed to the final Task 2A prediction output for total and chilled demand. Architecture and methodology are shown in the gallery; competition datasets remain private. Task 2B is constraint-based allocation, not a trained ML model.",
+      },
+    ],
     tags: [
       "Python",
       "Pandas",
