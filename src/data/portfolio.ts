@@ -7,7 +7,8 @@ export const profile = {
   name: "Mansala Liyanage",
   initials: "ML",
   title: "Full-Stack Developer & Digital Designer",
-  tagline: "I design and build thoughtful digital experiences, from interface to implementation.",
+  tagline:
+    "I build React interfaces, backend workflows, and data-driven applications. I’m a second-year undergraduate at UCSC, combining software development with a background in digital design.",
   location: "Colombo, Sri Lanka",
   timezone: "UTC+5:30",
   availability: "Exploring the space between creativity and technology",
