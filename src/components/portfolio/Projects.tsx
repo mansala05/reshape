@@ -8,6 +8,7 @@ import { cn } from "@/lib/utils";
 import { Dialog, DialogContent, DialogDescription, DialogTitle } from "@/components/ui/dialog";
 import { SectionHeading } from "./SectionHeading";
 import { ProjectPreview } from "./previews";
+import { ProjectGallery } from "./ProjectGallery";
 
 const pad2 = (n: number) => String(n).padStart(2, "0");
 
@@ -378,55 +379,6 @@ function Reel() {
   );
 }
 
-function ProjectScreenshots({ screenshots }: { screenshots: NonNullable<Project["screenshots"]> }) {
-  const [selected, setSelected] = useState(0);
-  const screenshot = screenshots[selected];
-  if (!screenshot) return null;
-
-  return (
-    <div className="flex h-full flex-col">
-      <figure className="flex min-h-0 flex-1 flex-col">
-        <div key={screenshot.src} className="h-80 overflow-hidden md:h-[460px]">
-          <img
-            src={screenshot.src}
-            alt={screenshot.alt}
-            className={
-              screenshot.crop
-                ? "h-full w-full object-cover object-top"
-                : "h-full w-full object-contain"
-            }
-          />
-        </div>
-        <figcaption className="px-5 py-3 text-sm text-muted-foreground">
-          {screenshot.alt}
-        </figcaption>
-      </figure>
-      <div className="flex gap-2 overflow-x-auto p-4" aria-label="Project screenshots">
-        {screenshots.map((image, index) => (
-          <button
-            key={image.src}
-            type="button"
-            onClick={() => setSelected(index)}
-            aria-label={`View screenshot ${index + 1}: ${image.alt}`}
-            aria-pressed={selected === index}
-            className={cn(
-              "shrink-0 overflow-hidden rounded-sm border",
-              selected === index ? "border-powder" : "border-border",
-            )}
-          >
-            <img
-              src={image.src}
-              alt=""
-              loading="lazy"
-              className="h-12 w-20 object-cover object-top"
-            />
-          </button>
-        ))}
-      </div>
-    </div>
-  );
-}
-
 function ProjectModal() {
   const id = useUI((s) => s.projectId);
   const project = projects.find((p) => p.id === id);
@@ -441,66 +393,66 @@ function ProjectModal() {
         }
       }}
     >
-      <DialogContent className="max-h-[90svh] max-w-6xl gap-0 overflow-y-auto border-border bg-popover p-0 sm:rounded-lg">
+      <DialogContent className="max-h-[90svh] w-[calc(100%-1rem)] max-w-6xl gap-0 overflow-y-auto overscroll-contain border-border bg-popover p-0 sm:rounded-lg">
         {project && (
-          <div className="grid md:grid-cols-[1.6fr_1fr]">
-            <div
-              className={cn(
-                "relative bg-background md:min-h-[540px]",
-                !project.screenshots?.length && "aspect-[4/3] md:aspect-auto",
-              )}
-            >
-              {project.screenshots?.length ? (
-                <ProjectScreenshots key={project.id} screenshots={project.screenshots} />
-              ) : project.preview ? (
-                <>
-                  <ProjectPreview kind={project.preview} />
-                  <span className="absolute right-4 top-4 rounded-sm bg-poppy px-2 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-poppy-foreground">
-                    Interactive
-                  </span>
-                </>
-              ) : (
-                <div className="grid-texture absolute inset-0 grid place-items-center">
-                  <span className="font-mono text-[7rem] font-semibold leading-none text-powder/10">
-                    {project.index}
-                  </span>
-                </div>
-              )}
-            </div>
-            <div className="flex flex-col border-t border-border p-7 md:border-l md:border-t-0">
+          <div className="min-w-0">
+            <div className="min-w-0 p-5 md:p-7">
               <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
                 <span className="text-poppy-bright">{project.index}</span> · {project.year}
               </p>
-              <DialogTitle className="mt-3 text-3xl font-semibold leading-tight tracking-tight">
+              <DialogTitle className="mt-3 pr-6 text-3xl font-semibold leading-tight tracking-tight">
                 {project.title}
               </DialogTitle>
               <p className="mt-1 font-serif text-lg italic text-powder">{project.role}</p>
               {project.award && (
-                <p className="mt-5 inline-flex w-fit items-center gap-2 rounded-sm border border-poppy/50 bg-poppy/10 px-3 py-2 font-mono text-[11px] uppercase tracking-[0.16em] text-foreground shadow-[var(--glow-poppy)]">
+                <p className="mt-4 inline-flex w-fit flex-wrap items-center gap-2 rounded-sm border border-poppy/50 bg-poppy/10 px-3 py-2 font-mono text-[11px] uppercase tracking-[0.16em] text-foreground shadow-[var(--glow-poppy)]">
                   <Star className="h-3.5 w-3.5 fill-current text-poppy-bright" />
                   <span className="text-poppy-bright">{project.award.label}</span>
                   <span className="text-muted-foreground">·</span>
                   {project.award.event}
                 </p>
               )}
-              <h3 className="mt-5 font-mono text-[11px] uppercase tracking-[0.16em] text-powder">
-                My contribution
-              </h3>
-              <DialogDescription className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                {project.description}
-              </DialogDescription>
-              <dl className="mt-5 space-y-4 border-t border-border pt-5">
-                {project.evidence.map((item) => (
-                  <div key={item.label}>
-                    <dt className="font-mono text-[11px] uppercase tracking-[0.16em] text-powder">
-                      {item.label}
-                    </dt>
-                    <dd className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                      {item.text}
-                    </dd>
+              <div className="mt-6 grid gap-6 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
+                <div className="min-w-0">
+                  <h3 className="font-mono text-[11px] uppercase tracking-[0.16em] text-powder">
+                    My contribution
+                  </h3>
+                  <DialogDescription className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                    {project.description}
+                  </DialogDescription>
+                  <div className="mt-5 flex flex-wrap gap-3">
+                    {project.links.map((l, i) => (
+                      <a
+                        key={l.label}
+                        href={l.href}
+                        target="_blank"
+                        rel="noreferrer"
+                        className={cn(
+                          "inline-flex items-center gap-2 rounded-sm px-4 py-2 font-mono text-xs uppercase tracking-[0.14em] transition",
+                          i === 0
+                            ? "bg-powder text-primary-foreground hover:bg-foreground"
+                            : "border border-border text-foreground hover:border-poppy hover:text-poppy-bright",
+                        )}
+                      >
+                        {l.label}
+                        <ArrowUpRight className="h-3.5 w-3.5" />
+                      </a>
+                    ))}
                   </div>
-                ))}
-              </dl>
+                </div>
+                <dl className="min-w-0 space-y-4 border-t border-border pt-5 md:border-l md:border-t-0 md:pl-6 md:pt-0">
+                  {project.evidence.map((item) => (
+                    <div key={item.label}>
+                      <dt className="font-mono text-[11px] uppercase tracking-[0.16em] text-powder">
+                        {item.label}
+                      </dt>
+                      <dd className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                        {item.text}
+                      </dd>
+                    </div>
+                  ))}
+                </dl>
+              </div>
               <ul className="mt-6 flex flex-wrap gap-2">
                 {project.tags.map((t) => (
                   <li
@@ -511,25 +463,18 @@ function ProjectModal() {
                   </li>
                 ))}
               </ul>
-              <div className="mt-auto flex flex-wrap gap-3 pt-8">
-                {project.links.map((l, i) => (
-                  <a
-                    key={l.label}
-                    href={l.href}
-                    target="_blank"
-                    rel="noreferrer"
-                    className={cn(
-                      "inline-flex items-center gap-2 rounded-sm px-4 py-2 font-mono text-xs uppercase tracking-[0.14em] transition",
-                      i === 0
-                        ? "bg-powder text-primary-foreground hover:bg-foreground"
-                        : "border border-border text-foreground hover:border-poppy hover:text-poppy-bright",
-                    )}
-                  >
-                    {l.label}
-                    <ArrowUpRight className="h-3.5 w-3.5" />
-                  </a>
-                ))}
-              </div>
+            </div>
+            <div className="min-w-0 border-t border-border">
+              {project.screenshots?.length ? (
+                <ProjectGallery key={project.id} screenshots={project.screenshots} />
+              ) : project.preview ? (
+                <div className="relative aspect-[4/3] bg-background">
+                  <ProjectPreview kind={project.preview} />
+                  <span className="absolute right-4 top-4 rounded-sm bg-poppy px-2 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-poppy-foreground">
+                    Interactive
+                  </span>
+                </div>
+              ) : null}
             </div>
           </div>
         )}

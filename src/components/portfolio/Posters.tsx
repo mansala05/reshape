@@ -139,6 +139,11 @@ function Filmstrip() {
                   <p className="mt-1 max-w-[260px] truncate text-sm font-medium text-foreground transition group-hover:text-poppy-bright">
                     {p.title}
                   </p>
+                  {p.role && (
+                    <p className="mt-1 max-w-[260px] text-xs leading-relaxed text-powder">
+                      {p.role}
+                    </p>
+                  )}
                 </button>
               </div>
             ))}

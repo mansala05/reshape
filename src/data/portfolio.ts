@@ -55,7 +55,7 @@ export type Project = {
   tags: string[];
   /** Which live demo runs on the card and in the modal. */
   preview?: PreviewKind;
-  screenshots?: { src: string; alt: string; crop?: boolean }[];
+  screenshots?: { src: string; alt: string; crop?: boolean; kind?: "event" }[];
   coverFit?: "cover" | "contain";
   cover?: { src: string; alt: string };
   links: { label: string; href: string }[];
@@ -109,14 +109,17 @@ export const projects: Project[] = [
       },
       {
         src: "/projects/invoice-chaser/neurox-group-photo.png",
+        kind: "event",
         alt: "NeuroX 1.0 event group photo",
       },
       {
         src: "/projects/invoice-chaser/team-orbit-at-neurox.png",
+        kind: "event",
         alt: "Team ORBIT working together at NeuroX 1.0",
       },
       {
         src: "/projects/invoice-chaser/top-15-announcement.png",
+        kind: "event",
         alt: "NeuroX 1.0 Top 15 qualification announcement listing Team ORBIT",
       },
     ],
@@ -279,22 +282,27 @@ export const projects: Project[] = [
       },
       {
         src: "/projects/surgimap/hackelite-team-discussion.png",
+        kind: "event",
         alt: "Team discussion at HackElite 3.0",
       },
       {
         src: "/projects/surgimap/hackelite-team-session.png",
+        kind: "event",
         alt: "Team members during a HackElite 3.0 session",
       },
       {
         src: "/projects/surgimap/hackelite-group-photo.png",
+        kind: "event",
         alt: "HackElite 3.0 event group photo",
       },
       {
         src: "/projects/surgimap/hackelite-presentation.png",
+        kind: "event",
         alt: "Presenting SurgiMap at HackElite 3.0",
       },
       {
         src: "/projects/surgimap/hackelite-finalists.png",
+        kind: "event",
         alt: "HackElite 3.0 finalist announcement listing Team Shadow Stack",
       },
     ],
