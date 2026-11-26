@@ -149,7 +149,7 @@ function ProjectCard({ project }: { project: Project }) {
             </span>
           </div>
           <p className="mt-3 text-sm text-muted-foreground">{project.summary}</p>
-          <ul className="mt-auto flex flex-wrap gap-2 pt-5">
+          <ul aria-label="Project technologies" className="mt-auto flex flex-wrap gap-2 pt-5">
             {project.tags.map((t) => (
               <li
                 key={t}
@@ -453,7 +453,10 @@ function ProjectModal() {
                   ))}
                 </dl>
               </div>
-              <ul className="mt-6 flex flex-wrap gap-2">
+              <p className="mt-6 font-mono text-[11px] uppercase tracking-[0.16em] text-powder">
+                Project technologies
+              </p>
+              <ul aria-label="Project technologies" className="mt-2 flex flex-wrap gap-2">
                 {project.tags.map((t) => (
                   <li
                     key={t}

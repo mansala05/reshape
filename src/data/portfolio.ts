@@ -152,7 +152,7 @@ export const projects: Project[] = [
     summary:
       "A mobile app concept connecting drivers facing vehicle breakdowns with nearby mechanics.",
     description:
-      "A mobile app concept created with Hello-World-Domain for CodeSprint 11. I worked on the early Figma designs, handed off UI specifications, and collaborated with three teammates on the frontend.",
+      "A mobile app concept created with Hello-World-Domain for CodeSprint 11. I used Figma for early interface designs and UI specifications, then collaborated with three teammates on the React Native frontend.",
     evidence: [
       {
         label: "Design work",
@@ -232,7 +232,7 @@ export const projects: Project[] = [
     summary:
       "A healthcare web app prototype that helps patients find nearby pharmacies with urgently needed surgical kits using simulated inventory sync.",
     description:
-      "Built with the four-member Team Shadow Stack for HackElite 3.0. I led UI/UX and frontend development for a surgical-kit pharmacy finder. I built search and stock-availability interfaces, integrated maps, contact actions and APIs, improved responsiveness, and presented the prototype.",
+      "Built with the four-member Team Shadow Stack for HackElite 3.0. I led UI/UX and frontend development for a surgical-kit pharmacy finder. I used React and TypeScript to build search and stock-availability interfaces, integrated maps, contact actions and APIs, improved responsiveness, and presented the prototype.",
     evidence: [
       {
         label: "Workflow",
@@ -331,7 +331,7 @@ export const projects: Project[] = [
     summary:
       "A logistics and delivery management system for coordinating store orders, stock operations, and deliveries.",
     description:
-      "Built collaboratively with Team Orbit for the Rootcode Tech Triathlon 2026 Hackathon. I contributed to frontend UI design and development, implemented Stock Manager backend functionality, and helped integrate it with the application.",
+      "Built collaboratively with Team Orbit for the Rootcode Tech Triathlon 2026 Hackathon. I contributed to frontend UI design and development in React, implemented Stock Manager backend functionality in NestJS, and helped integrate it with the application.",
     evidence: [
       {
         label: "My scope",
@@ -383,7 +383,7 @@ export const projects: Project[] = [
     summary:
       "A team Datathon project forecasting ten weeks of total and chilled demand, alongside delivery predictions and constraint-based allocation.",
     description:
-      "Built with Team Orbit for the Rootcode Tech Triathlon 2026 Datathon. I contributed to weekly demand preparation, feature engineering, model comparison, evaluation, and final prediction generation for ten-week demand forecasts. My focus was Task 2A; teammates handled delivery service-time and lateness models.",
+      "Built with Team Orbit for the Rootcode Tech Triathlon 2026 Datathon. I used Python, Pandas, and NumPy for weekly demand preparation and feature engineering, and Scikit-learn for forecasting model development and comparison. I also contributed to evaluation and final ten-week predictions. My focus was Task 2A; teammates handled delivery service-time and lateness models.",
     evidence: [
       {
         label: "Forecasting approach",
