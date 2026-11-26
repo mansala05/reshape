@@ -559,8 +559,8 @@ export const about = {
   introDetail: "soft-hearted, bubbly, a little chaotic, and a bit of a perfectionist.",
   narrative: [
     "I started designing when I was young, drawn to the way colors, shapes, and details could change how something felt. Working with design teams helped me grow from making static websites into exploring more interactive digital experiences.",
-    "Now I'm a second-year undergraduate at UCSC. I design for web and mobile, experiment with interactive sites and 3D models, and bring a touch of AI into the things I make. I care as much about how an experience works as how it looks, right down to the smallest details.",
-    "Right now, I'm spending more time exploring AI engineering and moving toward computer vision. I'm interested in how machines can interpret images and the world around us, and I want to keep learning how to build useful things with that knowledge. My design background still shapes how I think.",
+    "Now I'm a second-year undergraduate at UCSC. I work on interfaces and backend workflows, and experiment with interactive sites and 3D models. I care as much about how an experience works as how it looks, right down to the smallest details.",
+    "My work spans full-stack development and digital design, with experience in demand forecasting. I’m also exploring AI engineering and computer vision.",
   ],
   statement: "They weren’t more talented than you. They were just brave enough to try.",
   statementLabel: "",
