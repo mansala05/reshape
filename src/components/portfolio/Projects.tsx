@@ -1,4 +1,4 @@
-import { ArrowLeft, ArrowRight, ArrowUpRight, Maximize2, Star } from "lucide-react";
+import { ArrowLeft, ArrowRight, ArrowUpRight, ChevronDown, Maximize2, Star } from "lucide-react";
 import { useCallback, useEffect, useRef, useState } from "react";
 
 import { projects, sectionCode, type Project } from "@/data/portfolio";
@@ -395,8 +395,8 @@ function ProjectModal() {
     >
       <DialogContent className="max-h-[90svh] w-[calc(100%-1rem)] max-w-6xl gap-0 overflow-y-auto overscroll-contain border-border bg-popover p-0 sm:rounded-lg">
         {project && (
-          <div className="min-w-0">
-            <div className="min-w-0 p-5 md:p-7">
+          <div key={project.id} className="min-w-0">
+            <div className="min-w-0 p-5 md:p-6">
               <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
                 <span className="text-poppy-bright">{project.index}</span> · {project.year}
               </p>
@@ -412,60 +412,33 @@ function ProjectModal() {
                   {project.award.event}
                 </p>
               )}
-              <div className="mt-6 grid gap-6 md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
-                <div className="min-w-0">
-                  <h3 className="font-mono text-[11px] uppercase tracking-[0.16em] text-powder">
-                    My contribution
-                  </h3>
-                  <DialogDescription className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                    {project.description}
-                  </DialogDescription>
-                  <div className="mt-5 flex flex-wrap gap-3">
-                    {project.links.map((l, i) => (
-                      <a
-                        key={l.label}
-                        href={l.href}
-                        target="_blank"
-                        rel="noreferrer"
-                        className={cn(
-                          "inline-flex items-center gap-2 rounded-sm px-4 py-2 font-mono text-xs uppercase tracking-[0.14em] transition",
-                          i === 0
-                            ? "bg-powder text-primary-foreground hover:bg-foreground"
-                            : "border border-border text-foreground hover:border-poppy hover:text-poppy-bright",
-                        )}
-                      >
-                        {l.label}
-                        <ArrowUpRight className="h-3.5 w-3.5" />
-                      </a>
-                    ))}
-                  </div>
-                </div>
-                <dl className="min-w-0 space-y-4 border-t border-border pt-5 md:border-l md:border-t-0 md:pl-6 md:pt-0">
-                  {project.evidence.map((item) => (
-                    <div key={item.label}>
-                      <dt className="font-mono text-[11px] uppercase tracking-[0.16em] text-powder">
-                        {item.label}
-                      </dt>
-                      <dd className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                        {item.text}
-                      </dd>
-                    </div>
+              <div className="mt-4 min-w-0">
+                <h3 className="font-mono text-[11px] uppercase tracking-[0.16em] text-powder">
+                  My contribution
+                </h3>
+                <DialogDescription className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                  {project.description}
+                </DialogDescription>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {project.links.map((l, i) => (
+                    <a
+                      key={l.label}
+                      href={l.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      className={cn(
+                        "inline-flex items-center gap-2 rounded-sm px-4 py-2 font-mono text-xs uppercase tracking-[0.14em] transition",
+                        i === 0
+                          ? "bg-powder text-primary-foreground hover:bg-foreground"
+                          : "border border-border text-foreground hover:border-poppy hover:text-poppy-bright",
+                      )}
+                    >
+                      {l.label}
+                      <ArrowUpRight className="h-3.5 w-3.5" />
+                    </a>
                   ))}
-                </dl>
+                </div>
               </div>
-              <p className="mt-6 font-mono text-[11px] uppercase tracking-[0.16em] text-powder">
-                Project technologies
-              </p>
-              <ul aria-label="Project technologies" className="mt-2 flex flex-wrap gap-2">
-                {project.tags.map((t) => (
-                  <li
-                    key={t}
-                    className="rounded-sm border border-border px-2 py-1 font-mono text-[10px] uppercase tracking-[0.14em] text-powder"
-                  >
-                    {t}
-                  </li>
-                ))}
-              </ul>
             </div>
             <div className="min-w-0 border-t border-border">
               {project.screenshots?.length ? (
@@ -479,6 +452,40 @@ function ProjectModal() {
                 </div>
               ) : null}
             </div>
+            <details className="group border-t border-border p-5 md:p-6">
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 rounded-sm font-mono text-xs uppercase tracking-[0.14em] text-powder focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-powder [&::-webkit-details-marker]:hidden">
+                Project details
+                <ChevronDown
+                  aria-hidden="true"
+                  className="h-4 w-4 shrink-0 transition-transform group-open:rotate-180"
+                />
+              </summary>
+              <dl className="mt-5 grid min-w-0 gap-5 md:grid-cols-2 md:gap-6">
+                {project.evidence.map((item) => (
+                  <div key={item.label}>
+                    <dt className="font-mono text-[11px] uppercase tracking-[0.16em] text-powder">
+                      {item.label}
+                    </dt>
+                    <dd className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                      {item.text}
+                    </dd>
+                  </div>
+                ))}
+              </dl>
+              <p className="mt-6 font-mono text-[11px] uppercase tracking-[0.16em] text-powder">
+                Project technologies
+              </p>
+              <ul aria-label="Project technologies" className="mt-2 flex flex-wrap gap-2">
+                {project.tags.map((t) => (
+                  <li
+                    key={t}
+                    className="rounded-sm border border-border px-2 py-1 font-mono text-[10px] uppercase tracking-[0.14em] text-powder"
+                  >
+                    {t}
+                  </li>
+                ))}
+              </ul>
+            </details>
           </div>
         )}
       </DialogContent>

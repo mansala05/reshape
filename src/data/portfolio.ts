@@ -74,15 +74,15 @@ export const projects: Project[] = [
     summary:
       "An AI receivables agent that reviews overdue invoices, uses customer context to choose a response, and routes sensitive decisions to a person for approval.",
     description:
-      "Built with Team ORBIT for NeuroX 1.0. My contribution covered backend decision logging, audit trails, approval handling, replies, and recovery flows. I later used Codex to refine and test the demo workflows.",
+      "I contributed backend decision logging, audit trails, approval handling, replies, and recovery flows for Team ORBIT’s invoice follow-up agent.",
     evidence: [
       {
         label: "Workflow",
-        text: "Sensitive invoice decisions go through human review. The approval-queue screenshot shows the agent’s reasoning alongside approve, edit, and override actions.",
+        text: "Sensitive invoice decisions go through human review, with agent reasoning and approve, edit, and override actions. I later used Codex to refine and test the demo workflows.",
       },
       {
-        label: "Result & evidence",
-        text: "Team ORBIT qualified among the Top 15. The gallery includes the qualification announcement, decision history, and executed-action screens from the demo.",
+        label: "Result & context",
+        text: "Built with Team ORBIT for NeuroX 1.0, where the team qualified among the Top 15.",
       },
     ],
     tags: ["TypeScript", "Next.js", "React", "Supabase (PostgreSQL)", "Gmail API", "Tailwind CSS"],
@@ -152,15 +152,15 @@ export const projects: Project[] = [
     summary:
       "A mobile app concept connecting drivers facing vehicle breakdowns with nearby mechanics.",
     description:
-      "A mobile app concept created with Hello-World-Domain for CodeSprint 11. I used Figma for early interface designs and UI specifications, then collaborated with three teammates on the React Native frontend.",
+      "I created early interface designs and UI specifications in Figma, then collaborated with three teammates on the React Native frontend.",
     evidence: [
       {
         label: "Design work",
         text: "The design explores the driver and mechanic journeys, including role selection, live tracking, an active job, and a mechanic profile.",
       },
       {
-        label: "Evidence & scope",
-        text: "The gallery contains design mockups and wireframes, with Figma files linked for closer inspection. This was a team competition concept for CodeSprint 11.",
+        label: "Project context",
+        text: "A mobile app concept connecting drivers facing vehicle breakdowns with nearby mechanics, created with Hello-World-Domain for CodeSprint 11.",
       },
     ],
     tags: [
@@ -180,27 +180,27 @@ export const projects: Project[] = [
     screenshots: [
       {
         src: "/projects/road-assist-lk/onboarding.png",
-        alt: "RoadAssistLK onboarding design mockup",
+        alt: "Onboarding · interface design",
       },
       {
         src: "/projects/road-assist-lk/sign-in.png",
-        alt: "RoadAssistLK sign-in design mockup",
+        alt: "Sign-in · interface design",
       },
       {
         src: "/projects/road-assist-lk/active-job.png",
-        alt: "RoadAssistLK mechanic active-job design mockup",
+        alt: "Mechanic’s active job · interface design",
       },
       {
         src: "/projects/road-assist-lk/mechanic-profile.png",
-        alt: "RoadAssistLK mechanic profile design mockup",
+        alt: "Mechanic profile · interface design",
       },
       {
         src: "/projects/road-assist-lk/tracking-wireframe.png",
-        alt: "RoadAssistLK driver live-tracking wireframe",
+        alt: "Driver live tracking · wireframe",
       },
       {
         src: "/projects/road-assist-lk/role-selection-wireframe.png",
-        alt: "RoadAssistLK driver and garage role-selection wireframe",
+        alt: "Driver and garage role selection · wireframe",
       },
     ],
     links: [
@@ -213,11 +213,11 @@ export const projects: Project[] = [
         href: "https://youtu.be/bcDtwb1ND4c",
       },
       {
-        label: "Figma · design file 1",
+        label: "Figma · Wireframes",
         href: "https://www.figma.com/design/28qoT94kcrB79RY4fGQP50/Untitled?node-id=0-1",
       },
       {
-        label: "Figma · design file 2",
+        label: "Figma · Finished screens",
         href: "https://www.figma.com/design/0BpJO35PmIt1d5T2vxNna0/project-1--Copy-?node-id=0-1",
       },
     ],
@@ -232,7 +232,7 @@ export const projects: Project[] = [
     summary:
       "A healthcare web app prototype that helps patients find nearby pharmacies with urgently needed surgical kits using simulated inventory sync.",
     description:
-      "Built with the four-member Team Shadow Stack for HackElite 3.0. I led UI/UX and frontend development for a surgical-kit pharmacy finder. I used React and TypeScript to build search and stock-availability interfaces, integrated maps, contact actions and APIs, improved responsiveness, and presented the prototype.",
+      "I led UI/UX and frontend development in React and TypeScript, building search and stock-availability interfaces, integrating maps and APIs, improving responsiveness, and presenting the prototype.",
     evidence: [
       {
         label: "Workflow",
@@ -240,7 +240,7 @@ export const projects: Project[] = [
       },
       {
         label: "Result & scope",
-        text: "Team Shadow Stack reached the HackElite 3.0 Top 12. The gallery includes prototype screens and the finalist announcement. Inventory synchronization was simulated.",
+        text: "Built with the four-member Team Shadow Stack, which reached the HackElite 3.0 Top 12. Inventory synchronization was simulated.",
       },
     ],
     tags: [
@@ -331,15 +331,15 @@ export const projects: Project[] = [
     summary:
       "A logistics and delivery management system for coordinating store orders, stock operations, and deliveries.",
     description:
-      "Built collaboratively with Team Orbit for the Rootcode Tech Triathlon 2026 Hackathon. I contributed to frontend UI design and development in React, implemented Stock Manager backend functionality in NestJS, and helped integrate it with the application.",
+      "I contributed frontend UI design and development in React, implemented Stock Manager backend functionality in NestJS, and helped integrate it with the application.",
     evidence: [
       {
         label: "My scope",
         text: "Part 1 covered frontend UI work; Part 2 covered Stock Manager backend operations and integration. Both parts belong to the same team-built logistics application.",
       },
       {
-        label: "Evidence & context",
-        text: "The gallery shows the Store Manager dashboard, orders, order-history filters, and profile settings. The repository and demo video accompany this Hackathon entry; the team participated in the competition.",
+        label: "Project context",
+        text: "Team Orbit’s entry for the Rootcode Tech Triathlon 2026 Hackathon. The team participated in the competition. Store Manager screens cover delivery analytics, orders, order-history filters, and profile settings.",
       },
     ],
     tags: ["React", "Vite", "Tailwind CSS", "NestJS", "Prisma", "PostgreSQL", "Docker"],
@@ -383,15 +383,15 @@ export const projects: Project[] = [
     summary:
       "A team Datathon project forecasting ten weeks of total and chilled demand, alongside delivery predictions and constraint-based allocation.",
     description:
-      "Built with Team Orbit for the Rootcode Tech Triathlon 2026 Datathon. I used Python, Pandas, and NumPy for weekly demand preparation and feature engineering, and Scikit-learn for forecasting model development and comparison. I also contributed to evaluation and final ten-week predictions. My focus was Task 2A; teammates handled delivery service-time and lateness models.",
+      "My focus was Task 2A: weekly demand preparation, feature engineering, forecasting model development, evaluation, and ten-week predictions. Teammates handled delivery service-time and lateness models.",
     evidence: [
       {
         label: "Forecasting approach",
-        text: "Weekly demand preparation produced 702 aggregated records across 117 historical weeks. The hybrid forecast uses different approaches for different depot-brand combinations and was evaluated with rolling-origin backtesting.",
+        text: "I used Python, Pandas, and NumPy for demand preparation and feature engineering, and Scikit-learn for model development and comparison. The weekly dataset has 702 records across 117 weeks. The hybrid forecast selects approaches by depot-brand combination and was evaluated with rolling-origin backtesting.",
       },
       {
         label: "Output & scope",
-        text: "I contributed to the final Task 2A prediction output for total and chilled demand. Architecture and methodology are shown in the gallery; competition datasets remain private. Task 2B is constraint-based allocation, not a trained ML model.",
+        text: "Built with Team Orbit for the Rootcode Tech Triathlon 2026 Datathon. I contributed to final Task 2A predictions for total and chilled demand. Competition datasets remain private. Task 2B is constraint-based allocation, not a trained ML model.",
       },
     ],
     tags: [
