@@ -325,7 +325,7 @@ export const projects: Project[] = [
     id: "waypoint-ops",
     cover: { src: "/projects/logos/waypoint-ops.png", alt: "WaypointOps logo" },
     index: "04",
-    title: "WaypointOps — Parts 1 & 2",
+    title: "WaypointOps - Parts 1 & 2",
     year: "2026",
     role: "Frontend & Backend Development · Team Orbit",
     summary:
@@ -377,7 +377,7 @@ export const projects: Project[] = [
     id: "waypoint-ml",
     cover: { src: "/projects/logos/waypoint-ops.png", alt: "Waypoint AI/ML logo" },
     index: "05",
-    title: "Waypoint — AI/ML Models",
+    title: "Waypoint - AI/ML Models",
     year: "2026",
     role: "Demand Forecasting · Team Orbit",
     summary:
@@ -432,7 +432,7 @@ export const projects: Project[] = [
 ];
 
 /* ------------------------------------------------------------------ */
-/* Craft — tech stack                                                  */
+/* Craft - tech stack                                                  */
 /* ------------------------------------------------------------------ */
 
 /** `daily: true` gets a solid poppy dot; leave it off for tools in rotation. */
@@ -549,7 +549,7 @@ export const stack: StackGroup[] = [
 ];
 
 /* ------------------------------------------------------------------ */
-/* About — editorial section                                           */
+/* About - editorial section                                           */
 /* ------------------------------------------------------------------ */
 
 export const about = {
@@ -621,7 +621,7 @@ export const posters: Poster[] = [
     headline: "GENZPIRE",
     title: "GenZpire 2026",
     kind: "Volunteering",
-    client: "CSSL GenZ Chapter — University of Colombo School of Computing (UCSC)",
+    client: "CSSL GenZ Chapter - University of Colombo School of Computing (UCSC)",
     role: "Design Lead",
     venue: "W001, UCSC",
     city: "Colombo",
@@ -649,7 +649,7 @@ export const posters: Poster[] = [
     headline: "IEEEXTREME 20.0",
     title: "IEEEXtreme 20.0",
     kind: "Volunteering",
-    client: "IEEE Student Branch — University of Colombo School of Computing (UCSC)",
+    client: "IEEE Student Branch - University of Colombo School of Computing (UCSC)",
     role: "Design Team Member",
     venue: "UCSC",
     city: "Colombo",
@@ -667,7 +667,7 @@ export const posters: Poster[] = [
   },
   {
     kind: "Volunteering",
-    client: "Pahasara Media — University of Colombo School of Computing (UCSC)",
+    client: "Pahasara Media - University of Colombo School of Computing (UCSC)",
     role: "Photographer & Videographer",
     venue: "UCSC",
     city: "Colombo",
@@ -689,7 +689,7 @@ export const posters: Poster[] = [
   },
   {
     kind: "Volunteering",
-    client: "Pahasara Media — University of Colombo School of Computing (UCSC)",
+    client: "Pahasara Media - University of Colombo School of Computing (UCSC)",
     role: "Photographer & Videographer",
     venue: "UCSC",
     city: "Colombo",

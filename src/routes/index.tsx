@@ -16,9 +16,9 @@ import { profile } from "@/data/portfolio";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: `${profile.name} — ${profile.title}` },
+      { title: `${profile.name} - ${profile.title}` },
       { name: "description", content: profile.tagline },
-      { property: "og:title", content: `${profile.name} — ${profile.title}` },
+      { property: "og:title", content: `${profile.name} - ${profile.title}` },
       { property: "og:description", content: profile.tagline },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

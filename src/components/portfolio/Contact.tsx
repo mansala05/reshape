@@ -82,14 +82,14 @@ export function Contact() {
     playSound("click");
     const { name, email, message } = parsed.data;
     const subject = encodeURIComponent(`Hello from ${name}`);
-    const body = encodeURIComponent(`${message}\n\n— ${name} (${email})`);
+    const body = encodeURIComponent(`${message}\n\n- ${name} (${email})`);
     const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(profile.email)}&su=${subject}&body=${body}`;
     const gmailTab = window.open(gmailUrl, "_blank");
     if (gmailTab) gmailTab.opener = null;
     if (!gmailTab) {
       window.location.href = gmailUrl;
     }
-    push({ text: "✓ Gmail draft opened — hit Send in Gmail", tone: "ok" });
+    push({ text: "✓ Gmail draft opened - hit Send in Gmail", tone: "ok" });
     playSound("success");
     formRef.current?.reset();
     setBusy(false);
@@ -123,7 +123,7 @@ export function Contact() {
                 <span className="h-3 w-3 rounded-full bg-muted-foreground/40" />
               </div>
               <p className="font-mono text-[11px] text-muted-foreground">
-                contact.sh — zsh — 80×24
+                contact.sh - zsh - 80×24
               </p>
               <span className="w-12" />
             </div>
@@ -132,7 +132,7 @@ export function Contact() {
                 <span className="text-poppy-bright">~</span> $ whoami
               </p>
               <p className="mt-1 text-foreground">
-                {profile.name} — {profile.title}
+                {profile.name} - {profile.title}
               </p>
               <p className="mt-3 text-muted-foreground">
                 <span className="text-poppy-bright">~</span> $ cat status.txt

@@ -91,7 +91,7 @@ export function PosterArt({ poster, className }: { poster: Poster; className?: s
             {poster.lineup.join(" · ")}
           </p>
           <p className="mt-[2cqw] font-mono text-[2.8cqw] uppercase tracking-[0.18em]">
-            {poster.venue} — {poster.city}
+            {poster.venue} - {poster.city}
           </p>
         </div>
       )}
@@ -142,7 +142,7 @@ export function PosterArt({ poster, className }: { poster: Poster; className?: s
           <div className="relative flex-[1.1] p-[6cqw]" style={{ background: accent, color: bg }}>
             <p className="flex justify-between font-mono text-[3cqw] uppercase tracking-[0.2em]">
               <span>
-                {poster.kind} — {poster.year}
+                {poster.kind} - {poster.year}
               </span>
               <span>N° {poster.index}</span>
             </p>

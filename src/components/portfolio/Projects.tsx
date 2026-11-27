@@ -130,7 +130,7 @@ function ProjectCard({ project }: { project: Project }) {
           setUI({ projectId: project.id });
         }}
         className="flex h-full w-full flex-col text-left"
-        aria-label={`Open preview of ${project.title}${project.award ? ` — ${project.award.label}, ${project.award.event}` : ""}`}
+        aria-label={`Open preview of ${project.title}${project.award ? ` - ${project.award.label}, ${project.award.event}` : ""}`}
       >
         <Thumb project={project} live={live} />
         <div className="relative z-20 flex flex-1 flex-col p-6">
