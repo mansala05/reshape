@@ -456,7 +456,6 @@ const dailyDriverSkills = new Set([
   "TypeScript",
   "React",
   "Tailwind CSS",
-  "Vite",
   "Node.js",
   "REST APIs",
   "PostgreSQL",
@@ -466,19 +465,15 @@ const dailyDriverSkills = new Set([
   "GitHub",
   "NumPy",
   "Figma",
-  "Wireframing",
-  "Graphic Design",
-  "Photography",
-  "Videography",
 ]);
 
 export const stack: StackGroup[] = [
   {
     id: "languages",
     code: "A",
-    title: "Languages & Web Foundations",
-    blurb: "The foundations I use for programming and building for the web.",
-    tools: ["HTML", "CSS", "JavaScript", "Python", "C", "C++"].map((name) => ({
+    title: "Languages",
+    blurb: "Programming languages I use across web, systems, and data projects.",
+    tools: ["TypeScript", "JavaScript", "Python", "C++", "C"].map((name) => ({
       name,
       daily: dailyDriverSkills.has(name),
     })),
@@ -486,9 +481,9 @@ export const stack: StackGroup[] = [
   {
     id: "frontend",
     code: "B",
-    title: "Frontend & UI",
-    blurb: "Responsive web and mobile interfaces, from Figma to implementation.",
-    tools: ["TypeScript", "React", "Next.js", "React Native", "Expo", "Tailwind CSS", "Vite"].map(
+    title: "Frontend & Mobile",
+    blurb: "Web and mobile interfaces, including interactive 3D.",
+    tools: ["React", "Next.js", "React Native", "Tailwind CSS", "HTML", "CSS", "Three.js"].map(
       (name) => ({
         name,
         daily: dailyDriverSkills.has(name),
@@ -508,40 +503,29 @@ export const stack: StackGroup[] = [
   {
     id: "databases",
     code: "D",
-    title: "Databases & Tools",
-    blurb: "Data storage and development tools used across my team projects.",
-    tools: [
-      "PostgreSQL",
-      "Supabase",
-      "Prisma",
-      "Firebase",
-      "Firestore",
-      "Docker",
-      "Git",
-      "GitHub",
-    ].map((name) => ({ name, daily: dailyDriverSkills.has(name) })),
+    title: "Databases",
+    blurb: "Data storage and access across applications.",
+    tools: ["PostgreSQL", "Supabase", "Firebase", "Prisma"].map((name) => ({
+      name,
+      daily: dailyDriverSkills.has(name),
+    })),
+  },
+  {
+    id: "tools",
+    code: "E",
+    title: "Tools",
+    blurb: "Tools for development, collaboration, and design.",
+    tools: ["Git", "GitHub", "Docker", "Figma", "Linux", "GNU Octave"].map((name) => ({
+      name,
+      daily: dailyDriverSkills.has(name),
+    })),
   },
   {
     id: "data-ml",
-    code: "E",
-    title: "Data & Machine Learning",
-    blurb: "Data preparation, feature engineering, and demand forecasting.",
-    tools: [
-      "Pandas",
-      "NumPy",
-      "Scikit-learn",
-      "Huber Regression",
-      "Ridge Regression",
-      "Jupyter Notebook",
-    ].map((name) => ({ name, daily: dailyDriverSkills.has(name) })),
-  },
-  {
-    id: "design-media",
     code: "F",
-    title: "Design & Media",
-    blurb:
-      "Interface design, event graphics, and visual storytelling through photography and video.",
-    tools: ["Figma", "Wireframing", "Graphic Design", "Photography", "Videography"].map((name) => ({
+    title: "Data & ML",
+    blurb: "Data preparation, feature engineering, and demand forecasting.",
+    tools: ["Pandas", "NumPy", "Scikit-learn"].map((name) => ({
       name,
       daily: dailyDriverSkills.has(name),
     })),
